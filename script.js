@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const generatedKeysTitle = document.getElementById('generatedKeysTitle');
     const gameSelect = document.getElementById('gameSelect');
     const copyStatus = document.getElementById('copyStatus');
-    const sourceCode = document.getElementById('sourceCode');
     const channel = document.getElementById('channel');
     const gameSelectGroup = document.getElementById('gameSelectGroup');
     const keyCountGroup = document.getElementById('keyCountGroup');
@@ -235,9 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
         keyCountGroup.style.display = 'block';
     });
 
-    sourceCode.addEventListener('click', () => {
-        window.open('https://t.me/falconer1367', '_blank');
-    });
+    
 channel.addEventListener('click', () => {
         window.open('https://t.me/+OfQR1G0RQRYwMzdk', '_blank');
     });

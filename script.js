@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 clientToken = await login(clientId, game.appToken);
             } catch (error) {
-                alert(`Failed to login: ${error.message}`);
+                alert(`Failed to login, please try again!`);
                 startBtn.disabled = false;
                 return null;
             }

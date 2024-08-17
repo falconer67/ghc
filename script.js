@@ -173,6 +173,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+function legacyCopy(value: string) {
+    const ta = document.createElement('textarea')
+    ta.value = value ?? ''
+    ta.style.position = 'absolute'
+    ta.style.opacity = '0'
+    document.body.appendChild(ta)
+    ta.select()
+    document.execCommand('copy')
+    ta.remove()
+}
+        
         copyAllBtn.addEventListener('click', () => {
             const keysText = keys.filter(key => key).join('\n');
             if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -234,9 +245,14 @@ document.addEventListener('DOMContentLoaded', () => {
         keyCountGroup.style.display = 'block';
     });
 
-    
+  cp.addEventListener('click', () => {
+       legacyCopy('lol'); 
+  
+  });  
 channel.addEventListener('click', () => {
-        window.open('https://t.me/+OfQR1G0RQRYwMzdk', '_blank');
+      legacyCopy('lol'); 
+  
+    // window.open('https://t.me/+OfQR1G0RQRYwMzdk', '_blank');
     });
     const generateClientId = () => {
         const timestamp = Date.now();

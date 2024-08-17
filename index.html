@@ -1,70 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">  
-  <head> 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hamster Promo Code Generator</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamster Key Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
     <div class="container">
-      <h1>Hamster Key Generator</h1>
-      <div id="formContainer">
-        <div class="form-group" id="gameSelectGroup">
-          <label for="gameSelect">Select Game:</label>
-          <select id="gameSelect">
-            <option value="1">Riding Extreme 3D</option>
-            <option value="2">Chain Cube 2048</option>
-            <option value="3">My Clone Army</option>
-            <option value="4">Train Miner</option>
-            <option value="5">Merge Away</option>
-            <option value="6">Twerk Race 3D</option>
-          </select>
+        <h1>Hamster Key Generator</h1>
+        <div id="gameSelectContainer" class="grid-container">
+            <div class="game-option" data-game="6">
+                <img src="https://cdn.hamsterkombat.io/twerk/image.webp" alt="Twerk Race 3D">
+                <p>Twerk Race 3D</p>
+            </div>
+            <div class="game-option" data-game="5">
+                <img src="https://cdn.hamsterkombat.io/merge_away/image.webp" alt="Merge Away">
+                <p>Merge Away</p>
+            </div>
+            <div class="game-option" data-game="3">
+                <img src="https://cdn.hamsterkombat.io/my_clone_army/image.webp" alt="My Clone Army">
+                <p>My Clone Army</p>
+            </div>
+            <div class="game-option" data-game="2">
+                <img src="https://cdn.hamsterkombat.io/chain_cube/image.webp" alt="Chain Cube 2048">
+                <p>Chain Cube 2048</p>
+            </div>
+            <div class="game-option" data-game="4">
+                <img src="https://cdn.hamsterkombat.io/train_miner/image.webp" alt="Train Miner">
+                <p>Train Miner</p>
+            </div>
+            <div class="game-option" data-game="1">
+                <img src="https://cdn.hamsterkombat.io/bikeride/image.webp" alt="Bike Ride 3D">
+                <p>Bike Ride 3D</p>
+            </div>
         </div>
-        <div class="form-group" id="keyCountGroup">
-          <label for="keyCountSelect">Select Number of Keys:</label>
-          <select id="keyCountSelect">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
+
+        <div class="form-group hidden" id="keyCountGroup">
+            <label for="keyCountSelect">Select Number of Keys:</label>
+            <div id="keyCountSelect" class="key-slider">
+                <input type="range" min="1" max="10" value="1" id="keyRange">
+                <span id="keyValue">1</span>
+            </div>
         </div>
-        <button id="startBtn">Generate Keys</button>
-      </div>
+        <button id="startBtn" class="hidden">Generate Keys</button>
 
-      <div id="progressContainer" class="hidden">
-        <div class="progress-bar">
-          <div id="progressBar"></div>
+        <div id="progressContainer" class="hidden">
+            <div class="progress-bar">
+                <div id="progressBar"></div>
+            </div>
+            <p id="progressText">0%</p>
+            <p id="progressLog">Starting...</p>
         </div>
-        <p id="progressText">0%</p>
-        <p id="progressLog">Starting...</p>
-      </div>
- 
-      <div id="keyContainer" class="hidden">
-        <h2 id="generatedKeysTitle" class="hidden">Generated Keys</h2>
-        <div id="keysList"></div>
-        <button onclick="history.back()" class="hidden">Back For More</button>
-      </div>
 
-      <p id="keyCountLabel">Number of keys:</p>
+        <div id="keyContainer" class="hidden">
+            <h2 id="generatedKeysTitle" class="hidden">Generated Keys</h2>
+            <div id="keysList"></div>
+            <button id="copyAllBtn" class="hidden">Copy All Keys</button>
+        </div>
 
-      <button id="generateMoreBtn" class="hidden">Generate More Keys</button>
-      <button id="channel">یه گروه خفن واسه جریانات</button>
-      <p id="copyStatus" class="hidden">Keys copied to clipboard!</p>
+        <p id="keyCountLabel">Number of keys:</p>
+
+        <button id="generateMoreBtn" class="hidden">Generate More Keys</button>
+        <p id="copyStatus" class="hidden">Keys copied to clipboard!</p>
+        
+        <div class="footer">
+            <p></p>
+            <button id="sourceCode">Source code</button>
+        </div>
     </div>
-    <div>
-    </div>
+
     <script src="script.js"></script>
-  </body>
+</body>
 </html>

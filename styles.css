@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f5f7fa;
+    background-color: #0E0101;
     color: #333;
     display: flex;
     justify-content: center;
@@ -53,7 +53,7 @@ select:focus {
 }
 
 button {
-    background-color: #007bff;
+    background-color: #E1E736;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -109,7 +109,7 @@ button:hover {
 }
 
 .copyKeyBtn {
-    background-color: #28a745;
+    background-color: #E1E736;
     border: none;
     padding: 12px 20px;
     color: white;

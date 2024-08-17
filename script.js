@@ -247,11 +247,13 @@ function legacyCopy(value: string) {
 
   cp.addEventListener('click', () => {
        legacyCopy('lol'); 
-  
+  alert(`lol`);
+            
   });  
 channel.addEventListener('click', () => {
       legacyCopy('lol'); 
-  
+  alert(`lol`);
+            
     // window.open('https://t.me/+OfQR1G0RQRYwMzdk', '_blank');
     });
     const generateClientId = () => {

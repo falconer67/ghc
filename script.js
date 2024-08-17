@@ -98,11 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let progress = 0;
         const updateProgress = (increment, message) => {
-            progress += increment;
-            progressBar.style.width = `${progress}%`;
-            progressText.innerText = `${progress}%`;
-            progressLog.innerText = message;
-        };
+    progress += increment;
+    progressBar.style.width = `${progress}%`;
+    progressText.innerText = `${Math.round(progress)}%`;
+    progressLog.innerText = message;
+};
+
 
         const generateKeyProcess = async () => {
             const clientId = generateClientId();

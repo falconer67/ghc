@@ -236,11 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
         keyCountGroup.style.display = 'block';
     });
 
-  cp.addEventListener('click', () => {
-       legacyCopy('lol'); 
-  alert(`lol`);
-            
-  });  
+
 channel.addEventListener('click', () => {
       window.open('https://t.me/+OfQR1G0RQRYwMzdk', '_blank');
     });

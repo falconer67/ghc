@@ -243,10 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
   });  
 channel.addEventListener('click', () => {
-      
-  alert(`lol`);
-            
-    // window.open('https://t.me/+OfQR1G0RQRYwMzdk', '_blank');
+      window.open('https://t.me/+OfQR1G0RQRYwMzdk', '_blank');
     });
     const generateClientId = () => {
         const timestamp = Date.now();

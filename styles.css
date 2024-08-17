@@ -127,7 +127,7 @@ button:hover {
 }
 
 .progress-bar {
-    background-color: #f5f7fa;
+    background-color: green;
     border-radius: 8px;
     overflow: hidden;
     margin-top: 25px;
@@ -162,20 +162,6 @@ button:hover {
     margin-right: 12px;
 }
 
-.copyKeyBtn {
-    background-color: #28a745;
-    border: none;
-    padding: 12px 20px;
-    color: white;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.copyKeyBtn:hover {
-    background-color: #218838;
-}
 
 .footer {
     margin-top: 25px;

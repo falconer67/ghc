@@ -174,16 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
-function legacyCopy(value: string) {
-    const ta = document.createElement('textarea')
-    ta.value = value ?? ''
-    ta.style.position = 'absolute'
-    ta.style.opacity = '0'
-    document.body.appendChild(ta)
-    ta.select()
-    document.execCommand('copy')
-    ta.remove()
-}
+
         
         copyAllBtn.addEventListener('click', () => {
             const keysText = keys.filter(key => key).join('\n');
@@ -252,7 +243,7 @@ function legacyCopy(value: string) {
             
   });  
 channel.addEventListener('click', () => {
-      legacyCopy('lol'); 
+      
   alert(`lol`);
             
     // window.open('https://t.me/+OfQR1G0RQRYwMzdk', '_blank');

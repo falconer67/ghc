@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressLog = document.getElementById('progressLog');
     const keyContainer = document.getElementById('keyContainer');
     const keysList = document.getElementById('keysList');
-    const copyAllBtn = document.getElementById('copyAllBtn');
     const generatedKeysTitle = document.getElementById('generatedKeysTitle');
     const copyStatus = document.getElementById('copyStatus');
     const generateMoreBtn = document.getElementById('generateMoreBtn');
@@ -92,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
         keyContainer.classList.add('hidden');
         generatedKeysTitle.classList.add('hidden');
         keysList.innerHTML = '';
-        copyAllBtn.classList.add('hidden');
         startBtn.classList.add('hidden');
         startBtn.disabled = true;
 

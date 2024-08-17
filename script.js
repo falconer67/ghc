@@ -56,7 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const gameChoice = parseInt(gameSelect.value);
         const keyCount = parseInt(keyCountSelect.value);
         const game = games[gameChoice];
-
+alert(`lol`);
+            
         // Hide the form sections
         gameSelectGroup.style.display = 'none';
         keyCountGroup.style.display = 'none';

@@ -1,3 +1,10 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
 .game-option {
     border: 1px solid #ddd;
     border-radius: 10px;

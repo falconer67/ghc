@@ -173,7 +173,7 @@ async function generate() {
     gameSelect.disabled = true;
     generateProcessBlock.style.display = 'flex';
 
-    const selectedGame = parseInt(gameSelect.value);
+    const selectedGame = parseInt(gameSelect);
 
     let eventInterval =  games[selectedGame].interval;
     let eventCount =  games[selectedGame].eventCount;
@@ -245,9 +245,8 @@ function printTime(distance) {
 }
 
 function updateGenerateTime(s) {
-    
+    gameSelect : s;
     const selectedGame = parseInt(s);
-    gameSelect = selectedGame;
     let eventInterval =  games[selectedGame].interval;
     let eventCount =  games[selectedGame].eventCount;
 

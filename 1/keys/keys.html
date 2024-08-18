@@ -27,7 +27,7 @@
             <div id="caption-hamster" translate="no">Hamster Key Generator</div>
             <div id="caption-puzzle" translate="no"></div>
         </div>
-    <div id="gameSelectContainer" class="grid-container">
+    <div  style="display:none;" id="gameSelectContainer" class="grid-container">
             
             <div class="game-option" onclick="changesel('1')" data-game="1" value="1">
                 <img src="https://cdn.hamsterkombat.io/bikeride/image.webp" alt="Bike Ride 3D">
@@ -55,7 +55,7 @@
                 <p>Twerk Race 3D</p>
             </div>
     </div>
-        <div style="display: flex">
+        <div style="display:none;">
             <label for="game-names-select" class="game-names-label">Game:</label>
             <select id="game-names-select" onchange="updateGenerateTime(this)">
                 <option value="1">Riding Extreme 3D</option>

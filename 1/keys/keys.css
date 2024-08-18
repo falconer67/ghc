@@ -108,3 +108,80 @@
     visibility: visible;
     opacity: 1;
 }
+
+    background: #0056b3;
+}
+
+#keyValue {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+.progress-bar {
+    background-color: #f5f7fa;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 25px;
+    height: 35px;
+    position: relative;
+}
+
+.progress-bar div {
+    height: 100%;
+    background-color: green;
+    width: 0;
+    transition: width 0.5s;
+}
+
+#progressText {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+.key-item {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.key-item input {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-right: 12px;
+}
+
+
+.footer {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #777;
+}
+
+#copyStatus {
+    margin-top: 15px;
+    color: green;
+}

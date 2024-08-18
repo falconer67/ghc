@@ -245,9 +245,9 @@ function printTime(distance) {
 }
 
 function updateGenerateTime(s) {
-    gameSelect = s;
+    
     const selectedGame = parseInt(s);
-
+    gameSelect = selectedGame;
     let eventInterval =  games[selectedGame].interval;
     let eventCount =  games[selectedGame].eventCount;
 

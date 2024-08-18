@@ -244,8 +244,8 @@ function printTime(distance) {
         String(seconds).padStart(2, '0');
 }
 
-function updateGenerateTime(select) {
-    const selectedGame = parseInt(select.value);
+function updateGenerateTime(s) {
+    const selectedGame = parseInt(s);
 
     let eventInterval =  games[selectedGame].interval;
     let eventCount =  games[selectedGame].eventCount;

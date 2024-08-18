@@ -163,7 +163,12 @@ function generateRandomUUID() {
 }
 function changesel(v){
     document.getElementById('game-names-select').value = v;
-updateGenerateTime(v);
+    const selectedGame = parseInt(v);
+    let eventInterval =  games[selectedGame].interval;
+    let eventCount =  games[selectedGame].eventCount;
+    generateTimeValue.innerText = printTime((eventInterval * eventCount + 30) * 1000)
+
+
 }
 const generateButton = document.getElementById('generateButton');
 const generateTimeValue = document.getElementById('generate-time-value');

@@ -179,6 +179,8 @@ const gameSelect = document.getElementById('game-names-select');
 async function generate() {
     generateButton.style.display = 'none';
     gameSelect.disabled = true;
+    document.getElementById('gameSelectContainer').disabled = true;
+
     generateProcessBlock.style.display = 'flex';
 
     const selectedGame = parseInt(gameSelect.value);
@@ -221,6 +223,7 @@ async function generate() {
 
     generateButton.style.display = 'block';
     gameSelect.disabled = false;
+   document.getElementById('gameSelectContainer').disabled = false;
     clearInterval(generateTimeInterval);
     updateGenerateTime(gameSelect)
     console.log(codes);

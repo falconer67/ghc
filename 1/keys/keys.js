@@ -166,14 +166,14 @@ const generateButton = document.getElementById('generateButton');
 const generateTimeValue = document.getElementById('generate-time-value');
 const generateProcessBlock = document.getElementById('process-generate-block');
 let keyBlock = document.getElementById('keys-block');
-let gameSelect = "1";
+const gameSelect = document.getElementById('game-names-select');
 
 async function generate() {
     generateButton.style.display = 'none';
     gameSelect.disabled = true;
     generateProcessBlock.style.display = 'flex';
 
-    const selectedGame = parseInt(gameSelect);
+    const selectedGame = parseInt(gameSelect.value);
 
     let eventInterval =  games[selectedGame].interval;
     let eventCount =  games[selectedGame].eventCount;
@@ -244,9 +244,9 @@ function printTime(distance) {
         String(seconds).padStart(2, '0');
 }
 
-function updateGenerateTime(s) {
-    gameSelect : s;
-    const selectedGame = parseInt(s);
+function updateGenerateTime(select) {
+    const selectedGame = parseInt(select.value);
+
     let eventInterval =  games[selectedGame].interval;
     let eventCount =  games[selectedGame].eventCount;
 

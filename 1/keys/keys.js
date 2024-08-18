@@ -161,7 +161,9 @@ function generateRandomUUID() {
         (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
     );
 }
-
+function changesel(v){
+    document.getElementById('game-names-select').value = v;
+}
 const generateButton = document.getElementById('generateButton');
 const generateTimeValue = document.getElementById('generate-time-value');
 const generateProcessBlock = document.getElementById('process-generate-block');

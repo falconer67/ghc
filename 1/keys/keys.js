@@ -51,16 +51,16 @@ const games = {
 };
 
 function generateClientId() {
-    return crypto.randomUUID();
-    //
-    // const timestamp = Date.now();
-    // const randomNumbers = [];
-    //
-    // for (let i = 0; i < 19; i++) {
-    //     randomNumbers.push(Math.floor(Math.random() * 10));
-    // }
-    //
-    // return `${timestamp}-${randomNumbers.join('')}`;
+    // return crypto.randomUUID();
+    
+     const timestamp = Date.now();
+    const randomNumbers = [];
+    
+    for (let i = 0; i < 19; i++) {
+        randomNumbers.push(Math.floor(Math.random() * 10));
+     }
+    
+     return `${timestamp}-${randomNumbers.join('')}`;
 }
 
 
@@ -168,7 +168,7 @@ async function createCode(token, gameNumber) {
         } catch (error) {
             console.error('Fatal error:', error.message);
         }
-    } while (!response || !response.promoCode); // Повторяем запрос, если ничего не возвращает
+    } while (!response || !response.promoCode); 
 }
 
 function generateRandomUUID() {
@@ -258,8 +258,7 @@ function printTime(distance) {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    return '≈ ' +
-        String(hours).padStart(2, '0') + ':' +
+    return  String(hours).padStart(2, '0') + ':' +
         String(minutes).padStart(2, '0') + ':' +
         String(seconds).padStart(2, '0');
 }

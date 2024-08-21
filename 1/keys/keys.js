@@ -40,26 +40,27 @@ const games = {
         promoId: '61308365-9d16-4040-8bb0-2f4a4c69074c',
         interval: 20,
         eventCount: 10,
-  
-    }
+    },
     7 : {
         name: 'Polysphere',
         appToken: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71',
         promoId: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71',
         interval: 20,
         eventCount: 16,
-    }    
+    }
 };
 
 function generateClientId() {
-    const timestamp = Date.now();
-    const randomNumbers = [];
-
-    for (let i = 0; i < 19; i++) {
-        randomNumbers.push(Math.floor(Math.random() * 10));
-    }
-
-    return `${timestamp}-${randomNumbers.join('')}`;
+    return crypto.randomUUID();
+    //
+    // const timestamp = Date.now();
+    // const randomNumbers = [];
+    //
+    // for (let i = 0; i < 19; i++) {
+    //     randomNumbers.push(Math.floor(Math.random() * 10));
+    // }
+    //
+    // return `${timestamp}-${randomNumbers.join('')}`;
 }
 
 
@@ -79,6 +80,7 @@ async function loginClient(gameNumber) {
 
     try {
         const response = await fetch(url, {
+            signal: AbortSignal.timeout(5000),
             method: 'POST',
             headers: headers,
             body: JSON.stringify(data)
@@ -86,12 +88,11 @@ async function loginClient(gameNumber) {
         const result = await response.json();
 
         if (result.error_code === 'TooManyIpRequest') {
-            console.log('Too many requests');
-            await new Promise(resolve => setTimeout(resolve, 10000));
-            return loginClient(gameNumber);
+            return 'TooManyIpRequest';
         }
         return result.clientToken;
     } catch (error) {
+        await new Promise(resolve => setTimeout(resolve, 5000));
         return loginClient(gameNumber);
     }
 }
@@ -111,6 +112,7 @@ async function registerEvent(token, gameNumber) {
     };
     try {
         const response = await fetch(url, {
+            signal: AbortSignal.timeout(5000),
             method: 'POST',
             headers: headers,
             body: JSON.stringify(data)
@@ -126,7 +128,11 @@ async function registerEvent(token, gameNumber) {
         }
     } catch (error) {
         console.error('Fatal error:', error.message);
+        await new Promise(resolve => setTimeout(resolve, 5000));
         let newToken = await loginClient(gameNumber);
+        if (newToken === 'TooManyIpRequest') {
+            throw new Error('Too many requests, try again in 10 minutes')
+        }
         return registerEvent(newToken, gameNumber);
     }
 }
@@ -147,6 +153,7 @@ async function createCode(token, gameNumber) {
                 'Content-Type': 'application/json; charset=utf-8',
             };
             response = await fetch(url, {
+                signal: AbortSignal.timeout(5000),
                 method: 'POST',
                 headers: headers,
                 body: JSON.stringify(data)
@@ -169,15 +176,7 @@ function generateRandomUUID() {
         (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
     );
 }
-function changesel(v){
-    document.getElementById('game-names-select').value = v;
-    const selectedGame = parseInt(v);
-    let eventInterval =  games[selectedGame].interval;
-    let eventCount =  games[selectedGame].eventCount;
-    generateTimeValue.innerText = printTime((eventInterval * eventCount + 30) * 1000)
 
-
-}
 const generateButton = document.getElementById('generateButton');
 const generateTimeValue = document.getElementById('generate-time-value');
 const generateProcessBlock = document.getElementById('process-generate-block');
@@ -187,8 +186,6 @@ const gameSelect = document.getElementById('game-names-select');
 async function generate() {
     generateButton.style.display = 'none';
     gameSelect.disabled = true;
-    document.getElementById('gameSelectContainer').disabled = true;
-
     generateProcessBlock.style.display = 'flex';
 
     const selectedGame = parseInt(gameSelect.value);
@@ -212,6 +209,11 @@ async function generate() {
         tasks.push((async (index) => {
             try {
                 let token = await loginClient(selectedGame);
+
+                if (token === 'TooManyIpRequest') {
+                    throw new Error('Too many requests, try again in 10 minutes')
+                }
+
                 let registerToken = await registerEvent(token, selectedGame);
                 codes[index] = await createCode(registerToken, selectedGame);
             } catch (error) {
@@ -231,7 +233,6 @@ async function generate() {
 
     generateButton.style.display = 'block';
     gameSelect.disabled = false;
-   document.getElementById('gameSelectContainer').disabled = false;
     clearInterval(generateTimeInterval);
     updateGenerateTime(gameSelect)
     console.log(codes);
@@ -257,7 +258,7 @@ function printTime(distance) {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    return ' ' +
+    return '≈ ' +
         String(hours).padStart(2, '0') + ':' +
         String(minutes).padStart(2, '0') + ':' +
         String(seconds).padStart(2, '0');
@@ -269,6 +270,13 @@ function updateGenerateTime(select) {
     let eventInterval =  games[selectedGame].interval;
     let eventCount =  games[selectedGame].eventCount;
 
+    generateTimeValue.innerText = printTime((eventInterval * eventCount + 30) * 1000)
+}
+function changesel(v){
+    document.getElementById('game-names-select').value = v;
+    const selectedGame = parseInt(v);
+    let eventInterval =  games[selectedGame].interval;
+    let eventCount =  games[selectedGame].eventCount;
     generateTimeValue.innerText = printTime((eventInterval * eventCount + 30) * 1000)
 }
 function openurl()

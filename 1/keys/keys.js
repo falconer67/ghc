@@ -131,7 +131,7 @@ async function registerEvent(token, gameNumber) {
         await new Promise(resolve => setTimeout(resolve, 5000));
         let newToken = await loginClient(gameNumber);
         if (newToken === 'TooManyIpRequest') {
-            throw new Error('Too many requests, try again in 10 minutes')
+            throw new Error('لو رفتیم ! یکم صبر کن دوباره تست کن')
         }
         return registerEvent(newToken, gameNumber);
     }
@@ -211,7 +211,7 @@ async function generate() {
                 let token = await loginClient(selectedGame);
 
                 if (token === 'TooManyIpRequest') {
-                    throw new Error('Too many requests, try again in 10 minutes')
+                    throw new Error('لو رفتیم ! یکم صبر کن دوباره تست کن')
                 }
 
                 let registerToken = await registerEvent(token, selectedGame);
@@ -295,7 +295,7 @@ async function copyCode(codeId, button) {
         toast.style.top = `${buttonRect.top - toast.offsetHeight + window.scrollY}px`;
 
         toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 2000); // Hide after 2 seconds
+        setTimeout(() => toast.classList.remove('show'), 2000); 
     } catch (error) {
         console.error('Failed to copy content: ', error);
     }

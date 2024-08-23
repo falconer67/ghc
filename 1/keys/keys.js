@@ -64,6 +64,19 @@ const games = {
     }
 };
 
+//const ln = document.getElementById('ln');
+//const container = document.querySelector('.container');
+      //  ln.addEventListener('click', () => {
+          //  if (container.style.backgroundColor === 'black') {
+              //  container.style.backgroundColor = 'white';
+          //  } else {
+               // container.style.backgroundColor = 'black';
+           // }
+       // });
+
+
+
+
 function generateClientId() {
     // return crypto.randomUUID();
     

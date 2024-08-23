@@ -285,14 +285,46 @@ function updateGenerateTime(select) {
 
     generateTimeValue.innerText = printTime((eventInterval * eventCount + 30) * 1000)
 }
-function changesel(v){
-    document.getElementById('selectedgame').innerText = v + "گیم انتخابی : ";
+function changesel(v) {
+    let selectedText;
+    switch (v) {
+        case '1':
+            selectedText =  "bike ";
+            break;
+        case '2':
+            selectedText = "cube ";
+            break;
+        case '3':
+            selectedText = "clone ";
+            break;  
+        case '4':
+            selectedText = "train ";
+            break;
+        case '5':
+            selectedText = "merge ";
+            break;
+        case '6':
+            selectedText = "twerk ";
+            break;  
+        case '7':
+            selectedText = "polysphere ";
+         case '8':
+            selectedText = "mow & trim";
+            break;
+        case '9':
+            selectedText = "mud racing ";
+            break;
+        default:
+            selectedText = "";
+    }
+    document.getElementById('selectedgame').innerText = selectedText + "گیم انتخابی : ";
     document.getElementById('game-names-select').value = v;
     const selectedGame = parseInt(v);
-    let eventInterval =  games[selectedGame].interval;
-    let eventCount =  games[selectedGame].eventCount;
-    generateTimeValue.innerText = printTime((eventInterval * eventCount + 30) * 1000)
+    let eventInterval = games[selectedGame].interval;
+    let eventCount = games[selectedGame].eventCount;
+    generateTimeValue.innerText = printTime((eventInterval * eventCount + 30) * 1000);
 }
+
 function openurl()
 {
     window.open('https://t.me/+OfQR1G0RQRYwMzdk', '_blank');

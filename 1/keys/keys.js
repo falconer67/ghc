@@ -255,7 +255,7 @@ async function generate() {
 function startProcessGeneration(generationTime) {
     function updateProcessGenerationTime(generationTime) {
         const now = new Date();
-        setsel(v);
+        setsel(val);
         const distance = generationTime - now.getTime();
 
         generateTimeValue.innerText = printTime(distance)

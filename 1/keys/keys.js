@@ -286,6 +286,7 @@ function updateGenerateTime(select) {
     generateTimeValue.innerText = printTime((eventInterval * eventCount + 30) * 1000)
 }
 function changesel(v){
+    document.getElementById('selectedgame').innerText = v + "گیم انتخابی : ";
     document.getElementById('game-names-select').value = v;
     const selectedGame = parseInt(v);
     let eventInterval =  games[selectedGame].interval;

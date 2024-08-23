@@ -255,6 +255,7 @@ async function generate() {
 function startProcessGeneration(generationTime) {
     function updateProcessGenerationTime(generationTime) {
         const now = new Date();
+        setsel( document.getElementById('game-names-select').value );
         const distance = generationTime - now.getTime();
 
         generateTimeValue.innerText = printTime(distance)
@@ -286,7 +287,16 @@ function updateGenerateTime(select) {
     generateTimeValue.innerText = printTime((eventInterval * eventCount + 30) * 1000)
 }
 function changesel(v) {
-    let selectedText;
+    setsel(v);
+    document.getElementById('game-names-select').value = v;
+    const selectedGame = parseInt(v);
+    let eventInterval = games[selectedGame].interval;
+    let eventCount = games[selectedGame].eventCount;
+    generateTimeValue.innerText = printTime((eventInterval * eventCount + 30) * 1000);
+}
+function setsel(v)
+{
+let selectedText;
     switch (v) {
         case '1':
             selectedText =  "bike ";
@@ -317,13 +327,10 @@ function changesel(v) {
         default:
             selectedText = "";
     }
-    document.getElementById('selectedgame').innerText = selectedText + "گیم انتخابی : ";
-    document.getElementById('game-names-select').value = v;
-    const selectedGame = parseInt(v);
-    let eventInterval = games[selectedGame].interval;
-    let eventCount = games[selectedGame].eventCount;
-    generateTimeValue.innerText = printTime((eventInterval * eventCount + 30) * 1000);
+    document.getElementById('selectedgame').innerText = selectedText + "گیم انتخابی  ";
+
 }
+
 
 function openurl()
 {

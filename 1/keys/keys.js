@@ -255,7 +255,7 @@ async function generate() {
 function startProcessGeneration(generationTime) {
     function updateProcessGenerationTime(generationTime) {
         const now = new Date();
-        setsel( document.getElementById('game-names-select').value );
+        setsel( gameNumber);
         const distance = generationTime - now.getTime();
 
         generateTimeValue.innerText = printTime(distance)

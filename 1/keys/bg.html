@@ -10,12 +10,30 @@
             font-family: 'Roboto', sans-serif;
             background-color: yellow;
             color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            position: relative;
+            padding: 0;
+        }
+        .header {
+            background-color: #444;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .header-title {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 24px;
+        }
+        .toggle-icon {
+            cursor: pointer;
+            font-size: 24px;
         }
         .container {
             background: black;
@@ -25,31 +43,31 @@
             max-width: 400px;
             width: 100%;
             text-align: center;
-        }
-        .header {
-            background-color: #444;
-            color: white;
-            padding: 10px;
-            border-radius: 10px 10px 0 0;
-            font-size: 24px;
-        }
-        .toggle-icon {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 24px;
+            margin: 100px auto 0; /* Adjust margin-top to avoid overlap with header */
         }
     </style>
 </head>
 <body>
-    <div class="header">TapTap Generator</div>
+    <div class="header">
+        <div class="header-title">TapTap Generator</div>
         <div class="toggle-icon" id="toggleIcon">☀️</div>
-    <div class="container">
-        
-        
-        
-        <p>این یک متن نمونه است.</p>
     </div>
+    <div class="container">
+        <p>این یک متنhhh نمونه است.</p>
+    </div>
+
+    <script>
+        const toggleIcon = document.getElementById('toggleIcon');
+        const container = document.querySelector('.container');
+        toggleIcon.addEventListener('click', () => {
+            if (container.style.backgroundColor === 'black') {
+                container.style.backgroundColor = 'white';
+                toggleIcon.textContent = '🌙';
+            } else {
+                container.style.backgroundColor = 'black';
+                toggleIcon.textContent = '☀️';
+            }
+        });
+    </script>
 </body>
 </html>

@@ -77,11 +77,11 @@ function generateClientId() {
      return `${timestamp}-${randomNumbers.join('')}`;
 }
 
-
+let val = "";
 async function loginClient(gameNumber) {
     const clientId = generateClientId();
     const url = 'https://api.gamepromo.io/promo/login-client';
-
+  val = gameNumber;
     const data = {
         appToken: games[gameNumber].appToken,
         clientId: clientId,
@@ -255,7 +255,7 @@ async function generate() {
 function startProcessGeneration(generationTime) {
     function updateProcessGenerationTime(generationTime) {
         const now = new Date();
-        setsel( gameNumber);
+        setsel(v);
         const distance = generationTime - now.getTime();
 
         generateTimeValue.innerText = printTime(distance)

@@ -75,7 +75,17 @@ const games = {
        // });
 
 
-
+const toggleIcon = document.getElementById('toggleIcon');
+        const container = document.querySelector('.container');
+        toggleIcon.addEventListener('click', () => {
+            if (container.style.backgroundColor === 'black') {
+                container.style.backgroundColor = 'white';
+                toggleIcon.textContent = '🌙';
+            } else {
+                container.style.backgroundColor = 'black';
+                toggleIcon.textContent = '☀️';
+            }
+        });
 
 function generateClientId() {
     // return crypto.randomUUID();

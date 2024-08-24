@@ -221,6 +221,7 @@ let keyBlock = document.getElementById('keys-block');
 const gameSelect = document.getElementById('game-names-select');
 
 async function generate() {
+    setsel(gameSelect.value);
     generateButton.style.display = 'none';
     gameSelect.disabled = true;
     generateProcessBlock.style.display = 'flex';
@@ -350,7 +351,7 @@ let selectedText;
         default:
             selectedText = "";
     }
-    document.getElementById('selectedgame').innerText = selectedText + "گیم انتخابی  ";
+    document.getElementById('selectedgame').innerText = selectedText + " در حال تولید برای "
 
 }
 

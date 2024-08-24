@@ -351,7 +351,7 @@ let selectedText;
         default:
             selectedText = "";
     }
-    document.getElementById('selectedgame').innerText = selectedText + " در حال تولید برای "
+    document.getElementById('selectedgame').innerText = selectedText + " در حال تولید کد برای "
 
 }
 

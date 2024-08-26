@@ -322,7 +322,8 @@ const App = () => {
         Clone: false,
         Cube: false,
         Train: false,
-        Merge: false
+        Merge: false,
+	Merge1: false
     });
     const [selectedSessions, setSelectedSessions] = useState({});
     const [copiedKeys, setCopiedKeys] = useState({});
@@ -335,7 +336,8 @@ const [keyCountPerGame, setKeyCountPerGame] = useState({
     Cube: 4,
     Train: 4,
     Merge: 4,
-    Twerk: 4
+    Twerk: 4,
+    Merge1: 4
 });
 
 const appConfigs = {
@@ -364,6 +366,12 @@ const appConfigs = {
         btnImage: 'img_btn/btn_miner.jpg'
     },
     Merge: {
+        appToken: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833',
+        promoId: 'dc128d28-c45b-411c-98ff-ac7726fbaea4',
+        bgImage: 'img_bg/bg_mergeaway.jpg',
+        btnImage: 'img_btn/btn_mergeaway.jpg'
+    },
+  Merge1: {
         appToken: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833',
         promoId: 'dc128d28-c45b-411c-98ff-ac7726fbaea4',
         bgImage: 'img_bg/bg_mergeaway.jpg',
@@ -692,7 +700,8 @@ const formatKeysWithHashtags = (keys, game) => {
         Clone: "#myclonearmy",
         Cube: "#chaincube2048",
         Train: "#trainminer",
-        Merge: "#mergeaway"  // Добавлен хэштег для Merge
+        Merge: "#mergeaway" ,
+	Merge1: "#mergeaway1"// Добавлен хэштег для Merge
     };
                 
     let formattedKeys = `${hashtags[game]}\n`;

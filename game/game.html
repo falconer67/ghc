@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بازی سکه</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #2c3e50, #000);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .coin {
+            width: 100px;
+            height: 100px;
+            background-image: url('coin.png'); /* تصویر سکه */
+            background-size: cover;
+            margin: 20px auto;
+            cursor: pointer;
+        }
+        .score {
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="coin" onclick="incrementScore()"></div>
+        <div class="score" id="score">0</div>
+    </div>
+
+    <script>
+        let score = 0;
+
+        function incrementScore() {
+            score++;
+            document.getElementById('score').innerText = score;
+        }
+    </script>
+</body>
+</html>

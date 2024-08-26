@@ -13,49 +13,43 @@ const games = {
         interval: 20,
         eventCount: 3,
     },
+
     3: {
-        name: 'My Clone Army',
-        appToken: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb',
-        promoId: 'fe693b26-b342-4159-8808-15e3ff7f8767',
-        interval: 120,
-        eventCount: 5,
-    },
-    4: {
         name: 'Train Miner',
         appToken: '82647f43-3f87-402d-88dd-09a90025313f',
         promoId: 'c4480ac7-e178-4973-8061-9ed5b2e17954',
         interval: 120,
         eventCount: 1,
     },
-    5: {
+    4: {
         name: 'Merge Away',
         appToken: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833',
         promoId: 'dc128d28-c45b-411c-98ff-ac7726fbaea4',
         interval: 21,
         eventCount: 7,
     },
-    6 : {
+    5 : {
         name: 'TwerkRace',
         appToken: '61308365-9d16-4040-8bb0-2f4a4c69074c',
         promoId: '61308365-9d16-4040-8bb0-2f4a4c69074c',
         interval: 20,
         eventCount: 10,
     },
-    7 : {
+    6 : {
         name: 'Polysphere',
         appToken: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71',
         promoId: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71',
         interval: 20,
         eventCount: 16,
     },
-    8 : {
+    7 : {
         name: 'Mow and Trim',
         appToken: 'ef319a80-949a-492e-8ee0-424fb5fc20a6',
         promoId: 'ef319a80-949a-492e-8ee0-424fb5fc20a6',
         interval: 20,
         eventCount: 10,
     },
-    9 : {
+    8 : {
         name: 'Mud Racing',
         appToken: '8814a785-97fb-4177-9193-ca4180ff9da8',
         promoId: '8814a785-97fb-4177-9193-ca4180ff9da8',
@@ -329,23 +323,20 @@ let selectedText;
             selectedText = "cube ";
             break;
         case '3':
-            selectedText = "clone ";
-            break;  
-        case '4':
             selectedText = "train ";
             break;
-        case '5':
+        case '4':
             selectedText = "merge ";
             break;
-        case '6':
+        case '5':
             selectedText = "twerk ";
             break;  
-        case '7':
+        case '6':
             selectedText = "polysphere ";
-         case '8':
+         case '7':
             selectedText = "mow & trim";
             break;
-        case '9':
+        case '8':
             selectedText = "mud racing ";
             break;
         default:

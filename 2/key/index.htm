@@ -442,11 +442,14 @@ const appConfigs = {
                 document.documentElement.lang = language;
             }, [globalSettings, keySessions, theme, language]);
 
-            const generateClientId = () => {
-                const timestamp = Date.now();
-                const randomNumbers = Array.from({ length: 19 }, () => Math.floor(Math.random() * 10)).join('');
-                return `${timestamp}-${randomNumbers}`;
-            };
+  const generateClientId = () => {
+   const timestamp = Date.now();
+   const randomNumbers = [];
+   for (let i = 0; i < 19; i++) {
+        randomNumbers.push(Math.floor(Math.random() * 10));
+     }
+     return `${timestamp}-${randomNumbers.join('')}`;
+	    };
 
             const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 

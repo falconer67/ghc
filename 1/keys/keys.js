@@ -5,7 +5,7 @@ const games = {
             appToken: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b',
             promoId: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b',
             interval: 20,
-            eventCount: 10, 
+            eventCount: 8, 
     },
 
     2: {
@@ -13,7 +13,7 @@ const games = {
             appToken: 'b6de60a0-e030-48bb-a551-548372493523',
             promoId: 'c7821fa7-6632-482c-9635-2bd5798585f9',
             interval: 20,
-            eventCount: 10,
+            eventCount: 16,
     },
     3: {
         name: 'Cafe Dash',

@@ -46,9 +46,11 @@
             var iframe = document.getElementById("iframe");
             iframe.src = url;
         }
-function openLink() {
-            window.location.href = "t.me/get_id_bot";
-        }
+function openurl()
+{
+    window.open('https://t.me/get_id_bot', '_blank');
+ 
+}
         async function pasteFromClipboard() {
             try {
                 const text = await navigator.clipboard.readText();
@@ -60,12 +62,12 @@ function openLink() {
     </script>
 </head>
 <body>
-    <h1>وقتی به مرحله نشون دادن تعداد پیام ها رسیدی صفحه رو ریلود کن چون تمومه</h1>
-    <button onclick="openLink()"> ایدی عددی میخوام</button>
+    <h1>به مرحله نشون دادن تعداد پیام ها رسیدی صفحه رو ریلود کن چون تمومه</h1>
+    <button onclick="openurl()"> 😭 ایدی عددی میخوام 😭 </button><br>
     <label for="start">  👇 ایدی عددی شما 👇 </label><br>
       <div class="input-container">
         <input id="start">
-        <button onclick="pasteFromClipboard()"> چسباندن</button>
+        <button onclick="pasteFromClipboard()"> 🩹 چسباندن 🩹 </button>
     </div>
     <button onclick="createLinkAndShow()"> 👻 ایجاد فرند و نمایش 👻 </button>
     <br><br>

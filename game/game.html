@@ -46,7 +46,9 @@
             var iframe = document.getElementById("iframe");
             iframe.src = url;
         }
-
+function openLink() {
+            window.location.href = "t.me/get_id_bot";
+        }
         async function pasteFromClipboard() {
             try {
                 const text = await navigator.clipboard.readText();
@@ -59,7 +61,8 @@
 </head>
 <body>
     <h1>وقتی به مرحله نشون دادن تعداد پیام ها رسیدی صفحه رو ریلود کن چون تمومه</h1>
-    <label for="start">  👇 ایدی عددی شما 👇 </label><br><br>
+    <button onclick="openLink()"> ایدی عددی میخوام</button>
+    <label for="start">  👇 ایدی عددی شما 👇 </label><br>
       <div class="input-container">
         <input id="start">
         <button onclick="pasteFromClipboard()"> چسباندن</button>

@@ -16,11 +16,19 @@
             padding: 10px;
             box-sizing: border-box;
         }
-        input, button {
-            display: block;
-            margin: 20px auto;
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 90%;
             max-width: 400px;
+        }
+        .input-container input {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .input-container button {
+            flex-shrink: 0;
         }
         iframe {
             border: none;

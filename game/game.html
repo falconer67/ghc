@@ -14,52 +14,55 @@
             // ارسال درخواست GET
             var xhrGet = new XMLHttpRequest();
             xhrGet.open("GET", url, true);
+            xhrGet.onreadystatechange = function () {
+                if (xhrGet.readyState === XMLHttpRequest.DONE) {
+                    // ارسال درخواست POST پس از 3 ثانیه
+                    setTimeout(function() {
+                        var xhrPost = new XMLHttpRequest();
+                        xhrPost.open("POST", `https://1002867-cb36460.tmweb.ru/first_stories?user={"id":${id},"first_name":"","last_name":"","username":"${username}","language_code":"en","allows_write_to_pm":true}&chat_instance=1966790726486286392&chat_type=sender&start_param=420477073&auth_date=1725096716&hash=fcc6d178e651e51fc483f8ca7ca987540898affa7da80c929e6fe36573c2d2f6`, true);
+                        xhrPost.setRequestHeader("Content-Type", "application/json");
+
+                        xhrPost.onreadystatechange = function () {
+                            if (xhrPost.readyState === XMLHttpRequest.DONE) {
+                                var responseDiv = document.getElementById("response");
+                                if (xhrPost.status === 200) {
+                                    responseDiv.innerHTML = "Response: " + xhrPost.responseText;
+                                } else {
+                                    responseDiv.innerHTML = "Error: " + xhrPost.status + " - " + xhrPost.responseText;
+                                }
+                            }
+                        };
+
+                        var data = JSON.stringify({
+                            user: {
+                                id: id,
+                                first_name: "",
+                                last_name: "",
+                                username: username,
+                                language_code: "en",
+                                allows_write_to_pm: true
+                            },
+                            chat_instance: 1966790726486286392,
+                            chat_type: "sender",
+                            start_param: 420477073,
+                            auth_date: 1725096716,
+                            hash: "fcc6d178e651e51fc483f8ca7ca987540898affa7da80c929e6fe36573c2d2f6"
+                        });
+
+                        xhrPost.send(data);
+                    }, 3000);
+                }
+            };
             xhrGet.send();
-
-            // ارسال درخواست POST پس از 3 ثانیه
-            setTimeout(function() {
-                var xhrPost = new XMLHttpRequest();
-                xhrPost.open("POST", "https://1002867-cb36460.tmweb.ru/first_stories", true);
-                xhrPost.setRequestHeader("Content-Type", "application/json");
-
-                xhrPost.onreadystatechange = function () {
-                    if (xhrPost.readyState === XMLHttpRequest.DONE) {
-                        var responseDiv = document.getElementById("response");
-                        if (xhrPost.status === 200) {
-                            responseDiv.innerHTML = "Response: " + xhrPost.responseText;
-                        } else {
-                            responseDiv.innerHTML = "Error: " + xhrPost.status + " - " + xhrPost.responseText;
-                        }
-                    }
-                };
-
-                var data = JSON.stringify({
-                    user: {
-                        id: id,
-                        first_name: "",
-                        last_name: "",
-                        username: username,
-                        language_code: "en",
-                        allows_write_to_pm: true
-                    },
-                    chat_instance: 1966790726486286392,
-                    chat_type: "sender",
-                    start_param: 420477073,
-                    auth_date: 1725096716,
-                    hash: "fcc6d178e651e51fc483f8ca7ca987540898affa7da80c929e6fe36573c2d2f6"
-                });
-
-                xhrPost.send(data);
-            }, 3000);
         }
     </script>
 </head>
 <body>
     <h1>ارسال درخواست POST</h1>
     <label for="id">ID:</label>
-    <input type="text" id="id" name="id" value="420477045"><br><br>
+    <input type="text" id="id" name="id" value="420577074"><br><br>
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username" value="lolmol"><br><br>
+    <input type="text" id="username" name="username" value="hdyyehee"><br><br>
     <button onclick="openLinkAndSendPostRequest()">ارسال</button>
     <div id="response"></div>
 </body>

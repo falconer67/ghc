@@ -38,12 +38,24 @@
             var iframe = document.getElementById("iframe");
             iframe.src = url;
         }
+
+        async function pasteFromClipboard() {
+            try {
+                const text = await navigator.clipboard.readText();
+                document.getElementById("start").value = text;
+            } catch (err) {
+                document.getElementById("start").value = err;
+            }
+        }
     </script>
 </head>
 <body>
     <h1>وقتی به مرحله نشون دادن تعداد پیام ها رسیدی صفحه رو ریلود کن چون تمومه</h1>
     <label for="start">  👇 ایدی عددی شما 👇 </label><br><br>
-    <input id="start"><br><br>
+      <div class="input-container">
+        <input id="start">
+        <button onclick="pasteFromClipboard()"> چسباندن</button>
+    </div>
     <button onclick="createLinkAndShow()"> 👻 ایجاد فرند و نمایش 👻 </button>
     <br><br>
     <iframe id="iframe"></iframe>

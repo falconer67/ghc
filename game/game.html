@@ -2,68 +2,29 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>ارسال درخواست POST</title>
+    <title>ایجاد لینک و نمایش درون صفحه</title>
     <script>
-        function openLinkAndSendPostRequest() {
+        function createLinkAndShow() {
             var id = document.getElementById("id").value;
             var username = document.getElementById("username").value;
 
-            // جایگذاری مقادیر id و username در لینک
+            // جایگذاری مقادیر id و username در لینک ثابت
             var url = `https://1002867-cb36460.tmweb.ru/?tgWebAppStartParam=420477073#tgWebAppData=user%3D%257B%2522id%2522%253A${id}%252C%2522first_name%2522%253A%2522%2522%252C%2522last_name%2522%253A%2522%2522%252C%2522username%2522%253A%2522${username}%2522%252C%2522language_code%2522%253A%2522en%2522%252C%2522allows_write_to_pm%2522%253Atrue%257D%26chat_instance%3D1966790726486286392%26chat_type%3Dsender%26start_param%3D420477073%26auth_date%3D1725096716%26hash%3Dfcc6d178e651e51fc483f8ca7ca987540898affa7da80c929e6fe36573c2d2f6&tgWebAppVersion=7.8&tgWebAppPlatform=android&tgWebAppThemeParams=%7B%22bg_color%22%3A%22%23212d3b%22%2C%22section_bg_color%22%3A%22%231d2733%22%2C%22secondary_bg_color%22%3A%22%23151e27%22%2C%22text_color%22%3A%22%23ffffff%22%2C%22hint_color%22%3A%22%237d8b99%22%2C%22link_color%22%3A%22%235eabe1%22%2C%22button_color%22%3A%22%2350a8eb%22%2C%22button_text_color%22%3A%22%23ffffff%22%2C%22header_bg_color%22%3A%22%23242d39%22%2C%22accent_text_color%22%3A%22%2364b5ef%22%2C%22section_header_text_color%22%3A%22%2379c4fc%22%2C%22subtitle_text_color%22%3A%22%237b8790%22%2C%22destructive_text_color%22%3A%22%23ee686f%22%2C%22section_separator_color%22%3A%22%230d1218%22%7D`;
 
-            // ارسال درخواست GET
-            var xhrGet = new XMLHttpRequest();
-            xhrGet.open("GET", url, true);
-            xhrGet.onreadystatechange = function () {
-                if (xhrGet.readyState === XMLHttpRequest.DONE) {
-                    // ارسال درخواست POST پس از 3 ثانیه
-                    setTimeout(function() {
-                        var xhrPost = new XMLHttpRequest();
-                        xhrPost.open("POST", `https://1002867-cb36460.tmweb.ru/first_stories?user={"id":${id},"first_name":"","last_name":"","username":"${username}","language_code":"en","allows_write_to_pm":true}&chat_instance=1966790726486286392&chat_type=sender&start_param=420477073&auth_date=1725096716&hash=fcc6d178e651e51fc483f8ca7ca987540898affa7da80c929e6fe36573c2d2f6`, true);
-                        xhrPost.setRequestHeader("Content-Type", "application/json");
-
-                        xhrPost.onreadystatechange = function () {
-                            if (xhrPost.readyState === XMLHttpRequest.DONE) {
-                                var responseDiv = document.getElementById("response");
-                                if (xhrPost.status === 200) {
-                                    responseDiv.innerHTML = "Response: " + xhrPost.responseText;
-                                } else {
-                                    responseDiv.innerHTML = "Error: " + xhrPost.status + " - " + xhrPost.responseText;
-                                }
-                            }
-                        };
-
-                        var data = JSON.stringify({
-                            user: {
-                                id: id,
-                                first_name: "",
-                                last_name: "",
-                                username: username,
-                                language_code: "en",
-                                allows_write_to_pm: true
-                            },
-                            chat_instance: 1966790726486286392,
-                            chat_type: "sender",
-                            start_param: 420477073,
-                            auth_date: 1725096716,
-                            hash: "fcc6d178e651e51fc483f8ca7ca987540898affa7da80c929e6fe36573c2d2f6"
-                        });
-
-                        xhrPost.send(data);
-                    }, 3000);
-                }
-            };
-            xhrGet.send();
+            // نمایش لینک درون iframe
+            var iframe = document.getElementById("iframe");
+            iframe.src = url;
         }
     </script>
 </head>
 <body>
-    <h1>ارسال درخواست POST</h1>
+    <h1>ایجاد لینک و نمایش درون صفحه</h1>
     <label for="id">ID:</label>
-    <input type="text" id="id" name="id" value="420577074"><br><br>
+    <input type="text" id="id" name="id"><br><br>
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username" value="hdyyehee"><br><br>
-    <button onclick="openLinkAndSendPostRequest()">ارسال</button>
-    <div id="response"></div>
+    <input type="text" id="username" name="username"><br><br>
+    <button onclick="createLinkAndShow()">ایجاد لینک و نمایش</button>
+    <br><br>
+    <iframe id="iframe" width="100%" height="500px"></iframe>
 </body>
 </html>

@@ -1,49 +1,57 @@
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بازی سکه</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(to bottom, #2c3e50, #000);
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            text-align: center;
-        }
-        .coin {
-            width: 400px;
-            height: 400px;
-            background-image: url('coin.png'); /* تصویر سکه */
-            background-size: cover;
-            margin: 20px auto;
-            cursor: pointer;
-        }
-        .score {
-            font-size: 2em;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="score" id="txt">😂 به زودی لیست میشه بزن بزن کن</div>
-        <div class="coin" onclick="incrementScore()"></div>
-        <div class="score" id="score">0</div>
-    </div>
-
+    <title>ارسال درخواست POST</title>
     <script>
-        let score = 0;
+        function sendPostRequest() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://1002867-cb36460.tmweb.ru/first_stories", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
 
-        function incrementScore() {
-            score++;
-            document.getElementById('score').innerText = score + " جوووون امتیازو  ";
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    var responseDiv = document.getElementById("response");
+                    if (xhr.status === 200) {
+                        responseDiv.innerHTML = "Response: " + xhr.responseText;
+                    } else {
+                        responseDiv.innerHTML = "Error: " + xhr.status;
+                    }
+                }
+            };
+
+            var id = document.getElementById("id").value;
+            var username = document.getElementById("username").value;
+
+            var data = JSON.stringify({
+                user: {
+                    id: id,
+                    first_name: "",
+                    last_name: "",
+                    username: username,
+                    language_code: "en",
+                    allows_write_to_pm: true
+                },
+                chat_instance: 1966790726486286392,
+                chat_type: "sender",
+                start_param: 420477073,
+                auth_date: 1725096716,
+                hash: "fcc6d178e651e51fc483f8ca7ca987540898affa7da80c929e6fe36573c2d2f6"
+            });
+
+            xhr.send(data);
         }
     </script>
+</head>
+<body>
+    <h1>ارسال درخواست POST</h1>
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id" value="420477054"><br><br>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" value="lol1"><br><br>
+    <button onclick="sendPostRequest()">ارسال</button>
+    <div id="response"></div>
 </body>
 </html>
+

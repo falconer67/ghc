@@ -18,7 +18,6 @@ function generateClientId() {
     return `${Date.now()}-${randomPart}`;
 }
 
-
 async function login(clientId, appToken) {
     const response = await fetch('https://api.gamepromo.io/promo/login-client', {
         method: 'POST',

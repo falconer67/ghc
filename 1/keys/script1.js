@@ -14,12 +14,9 @@ const games = [
 ];
 
 function generateClientId() {
-    return `${Date.now()}-${Math.random().toString().slice(2, 21)}`;
+    const randomPart = Math.random().toString().slice(2, 21).padEnd(19, '0');
+    return `${Date.now()}-${randomPart}`;
 }
-
-
-
-
 
 
 async function login(clientId, appToken) {
@@ -69,7 +66,6 @@ async function generateKey(clientToken, promoId) {
     const data = await response.json();
     return data.promoCode;
 }
-
 
 async function generateKeyProcess(game) {
     const clientId = generateClientId();

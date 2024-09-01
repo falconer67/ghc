@@ -17,12 +17,21 @@ function generateClientId() {
     return `${Date.now()}-${Math.random().toString().slice(2, 21)}`;
 }
 
+
+
+
 async function login(clientId, appToken) {
     const response = await fetch('https://api.gamepromo.io/promo/login-client', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ appToken, clientId, clientOrigin: 'deviceid' })
     });
+
+    if (!response.ok) {
+        console.error('Error during login:', response.statusText);
+        return null;
+    }
+
     const data = await response.json();
     return data.clientToken;
 }
@@ -33,6 +42,12 @@ async function emulateProgress(clientToken, promoId) {
         headers: { 'Authorization': `Bearer ${clientToken}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ promoId, eventId: generateClientId(), eventOrigin: 'undefined' })
     });
+
+    if (!response.ok) {
+        console.error('Error during emulate progress:', response.statusText);
+        return null;
+    }
+
     const data = await response.json();
     return data.hasCode;
 }
@@ -43,9 +58,16 @@ async function generateKey(clientToken, promoId) {
         headers: { 'Authorization': `Bearer ${clientToken}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ promoId })
     });
+
+    if (!response.ok) {
+        console.error('Error during generate key:', response.statusText);
+        return null;
+    }
+
     const data = await response.json();
     return data.promoCode;
 }
+
 
 async function generateKeyProcess(game) {
     const clientId = generateClientId();

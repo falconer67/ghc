@@ -14,14 +14,19 @@ const games = [
 ];
 
 function generateClientId() {
-    const randomPart = Math.random().toString().slice(2, 21).padEnd(19, '0');
-    return `${Date.now()}-${randomPart}`;
+   const timestamp = Date.now();
+    const randomNumbers = [];
+    for (let i = 0; i < 19; i++) {
+        randomNumbers.push(Math.floor(Math.random() * 10));
+     }
+     return `${timestamp}-${randomNumbers.join('')}`;
 }
 
 async function login(clientId, appToken) {
     const response = await fetch('https://api.gamepromo.io/promo/login-client', {
+        signal: AbortSignal.timeout(5000),
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
         body: JSON.stringify({ appToken, clientId, clientOrigin: 'deviceid' })
     });
 
@@ -37,7 +42,7 @@ async function login(clientId, appToken) {
 async function emulateProgress(clientToken, promoId) {
     const response = await fetch('https://api.gamepromo.io/promo/register-event', {
         method: 'POST',
-        headers: { 'Authorization': `Bearer ${clientToken}`, 'Content-Type': 'application/json' },
+        headers: { 'Authorization': `Bearer ${clientToken}`, 'Content-Type': 'application/json; charset=utf-8' },
         body: JSON.stringify({ promoId, eventId: generateClientId(), eventOrigin: 'undefined' })
     });
 
@@ -53,7 +58,7 @@ async function emulateProgress(clientToken, promoId) {
 async function generateKey(clientToken, promoId) {
     const response = await fetch('https://api.gamepromo.io/promo/create-code', {
         method: 'POST',
-        headers: { 'Authorization': `Bearer ${clientToken}`, 'Content-Type': 'application/json' },
+        headers: { 'Authorization': `Bearer ${clientToken}`, 'Content-Type': 'application/json; charset=utf-8' },
         body: JSON.stringify({ promoId })
     });
 

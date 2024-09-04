@@ -8,56 +8,51 @@ const games = {
             eventCount: 8, 
     },
 
-    2: {
-        name: 'Tile Trio',
-        appToken: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7',
-        promoId: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7',
-        interval: 20,
-        eventCount: 5,
-    },
-    3 : {
+
+    
+    2 : {
         name: 'Fluff Crusade',
         appToken: '112887b0-a8af-4eb2-ac63-d82df78283d9',
         promoId: '112887b0-a8af-4eb2-ac63-d82df78283d9',
         interval: 120,
         eventCount: 1,
     },
-    4: {
+    3: {
         name: 'Mow and Trim',
         appToken: 'ef319a80-949a-492e-8ee0-424fb5fc20a6',
         promoId: 'ef319a80-949a-492e-8ee0-424fb5fc20a6',
         interval: 20,
         eventCount: 10,
     },
-    5: {
+    4: {
         name: 'Chain Cube 2048',
         appToken: 'd1690a07-3780-4068-810f-9b5bbf2931b2',
         promoId: 'b4170868-cef0-424f-8eb9-be0622e8e8e3',
         interval: 20,
         eventCount: 3,
     },
-    6 : {
+    5: {
         name: 'Train Miner',
         appToken: '82647f43-3f87-402d-88dd-09a90025313f',
         promoId: 'c4480ac7-e178-4973-8061-9ed5b2e17954',
         interval: 120,
         eventCount: 1,
     },
-    7: {
+    6: {
         name: 'Merge Away',
         appToken: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833',
         promoId: 'dc128d28-c45b-411c-98ff-ac7726fbaea4',
         interval: 21,
         eventCount: 7,
     },
-    8: {
+    7: {
         name: 'TwerkRace',
         appToken: '61308365-9d16-4040-8bb0-2f4a4c69074c',
         promoId: '61308365-9d16-4040-8bb0-2f4a4c69074c',
         interval: 20,
         eventCount: 10,
         },
-       9: {
+       8: {
             
         name: 'Polysphere',
         appToken: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71',
@@ -328,27 +323,25 @@ let selectedText;
         case '1':
             selectedText =  "zoopolis ";
             break;
+        
         case '2':
-            selectedText = "tile  ";
-            break;
-        case '3':
             selectedText = "fluff ";
             break;
-        case '4':
+        case '3':
             selectedText = "mow & trim ";
             break;
-        case '5':
+        case '4':
             selectedText = "chain cube ";
             break;  
-        case '6':
+        case '5':
             selectedText = "train miner ";
-         case '7':
+         case '6':
             selectedText = "merge away";
             break;
-        case '8':
+        case '7':
             selectedText = "twer race ";
             break;
-         case '9':
+         case '8':
             selectedText = "polysphere ";
             break;
         default:

@@ -9,18 +9,18 @@ const games = {
     },
 
     2: {
-        name: 'Gangs Wars',
-            appToken: 'b6de60a0-e030-48bb-a551-548372493523',
-            promoId: 'c7821fa7-6632-482c-9635-2bd5798585f9',
-            interval: 120,
-            eventCount: 5,
+        name: 'Tile Trio',
+        appToken: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7',
+        promoId: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7',
+        interval: 20,
+        eventCount: 5,
     },
-    3: {
-        name: 'Cafe Dash',
-            appToken: 'bc0971b8-04df-4e72-8a3e-ec4dc663cd11',
-            promoId: 'bc0971b8-04df-4e72-8a3e-ec4dc663cd11',
-            interval: 20,
-            eventCount: 16,
+    3 : {
+        name: 'Fluff Crusade',
+        appToken: '112887b0-a8af-4eb2-ac63-d82df78283d9',
+        promoId: '112887b0-a8af-4eb2-ac63-d82df78283d9',
+        interval: 120,
+        eventCount: 1,
     },
     4: {
         name: 'Mow and Trim',
@@ -329,10 +329,10 @@ let selectedText;
             selectedText =  "zoopolis ";
             break;
         case '2':
-            selectedText = "gangs war ";
+            selectedText = "tile  ";
             break;
         case '3':
-            selectedText = "Cafe dash ";
+            selectedText = "fluff ";
             break;
         case '4':
             selectedText = "mow & trim ";

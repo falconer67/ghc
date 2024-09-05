@@ -59,7 +59,14 @@ const games = {
         promoId: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71',
         interval: 20,
         eventCount: 16,
-        } 
+        },
+    9 : {
+        name: 'Tile Trio',
+        appToken: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7',
+        promoId: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7',
+        interval: 20,
+        eventCount: 5,
+    }
 };
 
 //const ln = document.getElementById('ln');
@@ -343,6 +350,9 @@ let selectedText;
             break;
          case '8':
             selectedText = "polysphere ";
+            break;
+         case '9':
+            selectedText = "tile trio ";
             break;
         default:
             selectedText = "";

@@ -73,7 +73,7 @@ const games = {
          promoId: 'ee0449d4-0c6a-41a6-9b5e-3c5da31aeaa1',
         interval: 20,
         eventCount: 5,
-    };
+    }
 
 //const ln = document.getElementById('ln');
 //const container = document.querySelector('.container');

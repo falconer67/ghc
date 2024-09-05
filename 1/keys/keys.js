@@ -66,8 +66,14 @@ const games = {
         promoId: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7',
         interval: 20,
         eventCount: 5,
-    }
-};
+    },
+    10: {
+        name: 'stone age',
+         appToken: 'ee0449d4-0c6a-41a6-9b5e-3c5da31aeaa1' ,
+         promoId: 'ee0449d4-0c6a-41a6-9b5e-3c5da31aeaa1',
+        interval: 20,
+        eventCount: 5,
+    };
 
 //const ln = document.getElementById('ln');
 //const container = document.querySelector('.container');
@@ -353,6 +359,9 @@ let selectedText;
             break;
          case '9':
             selectedText = "tile trio ";
+            break;
+        case '10':
+            selectedText = "stone age ";
             break;
         default:
             selectedText = "";

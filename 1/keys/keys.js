@@ -72,7 +72,7 @@ const games = {
          appToken: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af' ,
          promoId: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af',
         interval: 20,
-        eventCount: 5,
+        eventCount: 16,
     }
 };
 //const ln = document.getElementById('ln');

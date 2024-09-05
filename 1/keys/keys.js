@@ -74,7 +74,7 @@ const games = {
         interval: 20,
         eventCount: 5,
     }
-
+};
 //const ln = document.getElementById('ln');
 //const container = document.querySelector('.container');
       //  ln.addEventListener('click', () => {

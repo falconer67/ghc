@@ -69,8 +69,8 @@ const games = {
     },
     10: {
         name: 'stone age',
-         appToken: 'ee0449d4-0c6a-41a6-9b5e-3c5da31aeaa1' ,
-         promoId: 'ee0449d4-0c6a-41a6-9b5e-3c5da31aeaa1',
+         appToken: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af' ,
+         promoId: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af',
         interval: 20,
         eventCount: 5,
     }

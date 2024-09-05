@@ -1,28 +1,152 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WDJDN2JB');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Promo Generator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        #output {
-            white-space: pre-wrap;
-            background-color: #f4f4f4;
-            padding: 10px;
-            border: 1px solid #ddd;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Game Promo Generator</h1>
-    <button id="startButton">Start</button>
-    <div id="output"></div>
+    <title>Hamster Generator</title>
+    <link rel="stylesheet" href="../style.css?v1.2.27">
+    <link rel="stylesheet" href="keys.css?v1.2.27">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    </head>
+<script async="" src="../gtag/js?id=G-BL7SQ719F9"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
 
-    <script src="script3.js"></script>
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-BL7SQ719F9');
+</script>
+
+<body>
+    <div class="header">
+        <div class="header-title">Hamster Key Code Generator</div>
+        <div class="toggle-icon" id="toggleIcon">☀️</div>
+    </div>  <table style="width:100%"><tr><td>
+<div class="container">
+    <div>
+        <div id="selectedgame" class="caption">
+            
+        </div>
+    <div id="gameSelectContainer" class="grid-container">
+            
+            <div class="game-option" onclick="changesel('1')" data-game="1" value="1">
+                <img src="https://cdn.hamsterkombat.io/zoopolis/image.webp">
+            </div>
+        
+        
+         <div class="game-option"  onclick="changesel('2')" data-game="2" value="2" >
+                <img src="https://cdn.hamsterkombat.io/fluff/image.webp">
+                
+            </div>
+        <div class="game-option"  onclick="changesel('9')" data-game="9" value="9" >
+                <img src="https://cdn.hamsterkombat.io/tile_trio/image.webp">
+                
+            </div>
+        <div class="game-option" onclick="changesel('3')" data-game="3" value="3" >
+                <img src="https://cdn.hamsterkombat.io/mow_trim/image.webp" >
+                
+            </div>
+        
+        <div class="game-option" onclick="changesel('4')" data-game="4" value="4" >
+                <img src="https://cdn.hamsterkombat.io/chain_cube/image.webp">
+            </div>
+        
+        <div class="game-option" onclick="changesel('5')" data-game="5" value="5" >
+                <img src="https://cdn.hamsterkombat.io/train_miner/image.webp">
+          </div>
+        <div class="game-option" onclick="changesel('6')" data-game="6" value="6" >
+                <img src="https://cdn.hamsterkombat.io/merge_away/image.webp">
+          </div>
+        <div class="game-option" onclick="changesel('7')" data-game="7" value="7" >
+                <img src="https://cdn.hamsterkombat.io/twerk/image.webp">
+          </div>
+        <div class="game-option" onclick="changesel('8')" data-game="8" value="8">
+            <img src="https://cdn.hamsterkombat.io/polysphere/image.webp">
+        </div>
+        <div class="game-option" onclick="changesel('10')" data-game="10" value="10">
+            <img src="https://cdn.hamsterkombat.io/stone_age/image.webp">
+        </div>
+    </div>
+        <div style="display:none;">
+            <label for="game-names-select" class="game-names-label">Game:</label>
+            <select id="game-names-select" onchange="updateGenerateTime(this)">
+                <option value="1">zooplois</option>
+                  <option value="2">Fluff Crusade</option>
+                <option value="3">mow and trim</option>
+                <option value="4">chain cube</option>
+                <option value="5">train miner</option>
+                <option value="6">merge away</option>
+                <option value="7">twerk</option>
+                <option value="8">polysphere</option>
+            <option value="9">tile trio</option>
+            <option value="10">tile trio</option>
+            
+            
+            </select>
+        </div>
+
+        <div id="process-generate-block" style="width: 100%; flex-direction: column;">
+            <div class="generate-time-block">
+               
+                 <div id="generate-time-value" translate="no"></div>
+               <div id="generate-time-label" translate="no"> :زمان مورد نیاز برای این گیم</div>
+                <div class="tooltip" tabindex="0">
+                    <div class="tooltip-symbol" translate="no">?</div>
+                    <div class="tooltiptext" style="margin-right: 120px; top: unset; bottom: 125%">
+                        <p>زمانش برای هر گیم محاسبه شده ، شاید یه خورده بیشتر نیاز باشه</p>
+                        <p> پس یکم دندون رو جیگر بذار<br></p>
+                        
+                    </div>
+                </div>
+            </div>
+            <progress id="process-generate" value="0" max="100">0</progress>
+        </div>
+
+        <div id="keys-block">
+            <div class="key-group">
+                <div class="key-label" translate="no">Key 1:</div>
+                <div class="key-value" id="keys-value-1" translate="no"></div>
+                <svg class="copy-button" onclick="copyCode('keys-value-1', this)" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="key-group">
+                <div class="key-label" translate="no">Key 2:</div>
+                <div class="key-value" id="keys-value-2" translate="no"></div>
+                <svg class="copy-button" onclick="copyCode('keys-value-2', this)" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="key-group">
+                <div class="key-label" translate="no">Key 3:</div>
+                <div class="key-value" id="keys-value-3" translate="no"></div>
+                <svg class="copy-button" onclick="copyCode('keys-value-3', this)" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="key-group">
+                <div class="key-label" translate="no">Key 4:</div>
+                <div class="key-value" id="keys-value-4" translate="no"></div>
+                <svg class="copy-button" onclick="copyCode('keys-value-4', this)" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M7 5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-2v2a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-9a3 3 0 0 1 3-3h2zm2 2h5a3 3 0 0 1 3 3v5h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-9a1 1 0 0 0-1 1zM5 9a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1z" clip-rule="evenodd"></path></svg>
+            </div>
+
+            <div id="toast" class="toast">به کیلپ‌بورد کپی شد</div>
+        </div>
+
+        <button class="button" id="generateButton">Generate keys</button>
+        <br><br><button class="button" id="GroupChat" onclick="openurl()">Bin Zone GroupChat</button>
+       
+
+    </div>
+</div>
+</td></tr>
+</table>
+<script src="keys.js?v1.2.18"></script>
 </body>
 </html>

@@ -10,6 +10,7 @@
     <label id="url-label" style="color: blue;"></label>
     <div id="user-info"></div>
     <label id="message-label" style="color: red;"></label>
+    <button onclick="displayUserInfo()">gen</button>
 
     <script>
         function getQueryParams() {
@@ -29,9 +30,10 @@
             const urlLabel = document.getElementById('url-label');
             urlLabel.textContent = window.location.href;
 
-            if (params.user) {
+            if (params.tgWebAppData) {
                 try {
-                    const user = JSON.parse(params.user);
+                    const tgData = JSON.parse(decodeURIComponent(params.tgWebAppData));
+                    const user = JSON.parse(tgData.user);
                     const userInfoDiv = document.getElementById('user-info');
                     userInfoDiv.innerHTML = `
                         <p>نام: ${user.first_name} ${user.last_name || ''}</p>

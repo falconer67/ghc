@@ -10,29 +10,30 @@
     <label id="url-label" style="color: blue;"></label>
     <div id="user-info"></div>
     <label id="message-label" style="color: red;"></label>
-    <button onclick="displayUserInfo()">geeeeet</button>
+    <button onclick="displayUserInfo()">gen</button>
 
     <script>
-        
-
         function displayUserInfo() {
             const params = window.location.hash.substring(1);
             const messageLabel = document.getElementById('message-label');
             const urlLabel = document.getElementById('url-label');
             urlLabel.textContent = window.location.hash.substring(1);
-                      const userParam = params.match(/user%3D%257B%2522id%2522%253A(.*?)%252C%2522/);
-                    if (userParam && userParam[1]) {
-                        const userId = userParam[1];
-                        const userInfoDiv = document.getElementById('user-info');
-                        userInfoDiv.innerHTML = `
-                            <p>آی‌دی کاربر: ${userId}</p>
-                        `;
-                        messageLabel.textContent = 'آی‌دی کاربر با موفقیت استخراج شد.';
-                    } else {
-                        messageLabel.textContent = 'آی‌دی کاربر در URL یافت نشد.';
-                    }
-                
-            
+
+            const userIdParam = params.match(/user%3D%257B%2522id%2522%253A(.*?)%252C%2522/);
+            const firstNameParam = params.match(/%2522first_name%2522%253A%2522(.*?)%2522%252C%2522/);
+
+            if (userIdParam && userIdParam[1] && firstNameParam && firstNameParam[1]) {
+                const userId = userIdParam[1];
+                const firstName = firstNameParam[1];
+                const userInfoDiv = document.getElementById('user-info');
+                userInfoDiv.innerHTML = `
+                    <p>آی‌دی کاربر: ${userId}</p>
+                    <p>نام کاربر: ${firstName}</p>
+                `;
+                messageLabel.textContent = 'آی‌دی و نام کاربر با موفقیت استخراج شد.';
+            } else {
+                messageLabel.textContent = 'آی‌دی یا نام کاربر در URL یافت نشد.';
+            }
         }
 
         document.addEventListener('DOMContentLoaded', displayUserInfo);

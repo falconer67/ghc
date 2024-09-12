@@ -30,10 +30,9 @@
             const urlLabel = document.getElementById('url-label');
             urlLabel.textContent = window.location.href;
 
-            if (params.tgWebAppData) {
+            if (params.user) {
                 try {
-                    const tgData = JSON.parse(decodeURIComponent(params.tgWebAppData));
-                    const user = JSON.parse(tgData.user);
+                    const user = JSON.parse(params.user);
                     const userInfoDiv = document.getElementById('user-info');
                     userInfoDiv.innerHTML = `
                         <p>نام: ${user.first_name} ${user.last_name || ''}</p>

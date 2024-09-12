@@ -3,17 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نمایش URL</title>
+    <title>مدیریت المنت‌های تلگرام</title>
 </head>
 <body>
-    <h1>نمایش URL</h1>
+    <h1>مدیریت المنت‌های تلگرام</h1>
     <label id="url-label" style="color: blue;"></label>
+    <div id="user-info"></div>
+    <label id="message-label" style="color: red;"></label>
 
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
+        function getQueryParams() {
+            const params = {};
+            const queryString = window.location.hash.substring(1);
+            const regex = /([^&=]+)=([^&]*)/g;
+            let m;
+            while (m = regex.exec(queryString)) {
+                params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+            }
+            return params;
+        }
+
+        function displayUserInfo() {
+            const params = getQueryParams();
+            const messageLabel = document.getElementById('message-label');
             const urlLabel = document.getElementById('url-label');
-            urlLabel.textContent = window.location.hash;
-        });
+            urlLabel.textContent = window.location.href;
+
+            if (params.user) {
+                try {
+                    const user = JSON.parse(params.user);
+                    const userInfoDiv = document.getElementById('user-info');
+                    userInfoDiv.innerHTML = `
+                        <p>نام: ${user.first_name} ${user.last_name || ''}</p>
+                        <p>یوزرنیم: ${user.username}</p>
+                        <p>زبان: ${user.language_code}</p>
+                    `;
+                    messageLabel.textContent = 'اطلاعات کاربر با موفقیت بارگذاری شد.';
+                } catch (error) {
+                    messageLabel.textContent = 'خطا در تجزیه داده‌های کاربر: ' + error.message;
+                }
+            } else {
+                messageLabel.textContent = 'داده‌ای از کاربر در URL یافت نشد.';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', displayUserInfo);
     </script>
 </body>
 </html>

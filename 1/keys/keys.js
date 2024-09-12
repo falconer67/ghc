@@ -73,6 +73,13 @@ const games = {
          promoId: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af',
         interval: 20,
         eventCount: 16,
+    },
+    11 : {
+        name: 'Bouncemasters',
+        appToken: 'bc72d3b9-8e91-4884-9c33-f72482f0db37',
+        promoId: 'bc72d3b9-8e91-4884-9c33-f72482f0db37',
+        interval: 61,
+        eventCount: 1,
     }
 };
 //const ln = document.getElementById('ln');
@@ -363,6 +370,8 @@ let selectedText;
         case '10':
             selectedText = "stone age ";
             break;
+           case '11':
+            selectedText = "bouncemasters ";
         default:
             selectedText = "";
     }

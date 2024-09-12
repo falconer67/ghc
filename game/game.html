@@ -10,48 +10,29 @@
     <label id="url-label" style="color: blue;"></label>
     <div id="user-info"></div>
     <label id="message-label" style="color: red;"></label>
-    <button onclick="displayUserInfo()">gennn</button>
+    <button onclick="displayUserInfo()">geeeeet</button>
 
     <script>
-        function getQueryParams() {
-            const params = {};
-            const queryString = window.location.hash.substring(1);
-            const regex = /([^&=]+)=([^&]*)/g;
-            let m;
-            while (m = regex.exec(queryString)) {
-                params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-            }
-            return params;
-        }
+        
 
         function displayUserInfo() {
-            const params = getQueryParams();
+            const params = window.location.hash.substring(1);
             const messageLabel = document.getElementById('message-label');
             const urlLabel = document.getElementById('url-label');
-            urlLabel.textContent = window.location.href;
-
-            if (params.tgWebAppData) {
-                try {
-                    const tgWebAppData = decodeURIComponent(params.tgWebAppData);
-                    const userParam = tgWebAppData.match(/user%3D(.*?)%26/);
+            urlLabel.textContent = window.location.hash.substring(1);
+                      const userParam = params.match(/user%3D%257B%2522id%2522%253A(.*?)%252C%2522/);
                     if (userParam && userParam[1]) {
-                        const user = JSON.parse(decodeURIComponent(userParam[1]));
+                        const userId = userParam[1];
                         const userInfoDiv = document.getElementById('user-info');
                         userInfoDiv.innerHTML = `
-                            <p>نام: ${user.first_name} ${user.last_name || ''}</p>
-                            <p>یوزرنیم: ${user.username}</p>
-                            <p>زبان: ${user.language_code}</p>
+                            <p>آی‌دی کاربر: ${userId}</p>
                         `;
-                        messageLabel.textContent = 'اطلاعات کاربر با موفقیت بارگذاری شد.';
+                        messageLabel.textContent = 'آی‌دی کاربر با موفقیت استخراج شد.';
                     } else {
-                        messageLabel.textContent = 'داده‌ای از کاربر در URL یافت نشد.';
+                        messageLabel.textContent = 'آی‌دی کاربر در URL یافت نشد.';
                     }
-                } catch (error) {
-                    messageLabel.textContent = 'خطا در تجزیه داده‌های کاربر: ' + error.message;
-                }
-            } else {
-                messageLabel.textContent = 'داده‌ای از کاربر در URL یافت نشد.';
-            }
+                
+            
         }
 
         document.addEventListener('DOMContentLoaded', displayUserInfo);

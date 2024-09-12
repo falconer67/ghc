@@ -286,8 +286,9 @@ async function generate() {
         let keyValue = document.getElementById('keys-value-' + (i + 1));
         keyValue.innerText = codes[i];
     }
-
-    generateButton.style.display = 'block';
+    document.getElementById("ordak").style.display = 'block';
+document.getElementById("ordak").play();
+     generateButton.style.display = 'block';
     gameSelect.disabled = false;
     clearInterval(generateTimeInterval);
     updateGenerateTime(gameSelect)

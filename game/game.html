@@ -30,16 +30,22 @@
             const urlLabel = document.getElementById('url-label');
             urlLabel.textContent = window.location.href;
 
-            if (params.user) {
+            if (params.tgWebAppData) {
                 try {
-                    const user = JSON.parse(params.user);
-                    const userInfoDiv = document.getElementById('user-info');
-                    userInfoDiv.innerHTML = `
-                        <p>نام: ${user.first_name} ${user.last_name || ''}</p>
-                        <p>یوزرنیم: ${user.username}</p>
-                        <p>زبان: ${user.language_code}</p>
-                    `;
-                    messageLabel.textContent = 'اطلاعات کاربر با موفقیت بارگذاری شد.';
+                    const tgWebAppData = decodeURIComponent(params.tgWebAppData);
+                    const userParam = tgWebAppData.match(/user%3D(.*?)%26/);
+                    if (userParam && userParam[1]) {
+                        const user = JSON.parse(decodeURIComponent(userParam[1]));
+                        const userInfoDiv = document.getElementById('user-info');
+                        userInfoDiv.innerHTML = `
+                            <p>نام: ${user.first_name} ${user.last_name || ''}</p>
+                            <p>یوزرنیم: ${user.username}</p>
+                            <p>زبان: ${user.language_code}</p>
+                        `;
+                        messageLabel.textContent = 'اطلاعات کاربر با موفقیت بارگذاری شد.';
+                    } else {
+                        messageLabel.textContent = 'داده‌ای از کاربر در URL یافت نشد.';
+                    }
                 } catch (error) {
                     messageLabel.textContent = 'خطا در تجزیه داده‌های کاربر: ' + error.message;
                 }

@@ -6,8 +6,9 @@
     <title>مدیریت المنت‌های تلگرام</title>
 </head>
 <body>
-    <h1>  hi </h1>
+    <h1>test hi  </h1>
     <div id="user-info"></div>
+    <label id="message-label" style="color: red;"></label>
 
     <script>
         function getQueryParams() {
@@ -23,14 +24,22 @@
 
         function displayUserInfo() {
             const params = getQueryParams();
+            const messageLabel = document.getElementById('message-label');
             if (params.user) {
-                const user = JSON.parse(params.user);
-                const userInfoDiv = document.getElementById('user-info');
-                userInfoDiv.innerHTML = `
-                    <p>نام: ${user.first_name} ${user.last_name || ''}</p>
-                    <p>یوزرنیم: ${user.username}</p>
-                    <p>زبان: ${user.language_code}</p>
-                `;
+                try {
+                    const user = JSON.parse(params.user);
+                    const userInfoDiv = document.getElementById('user-info');
+                    userInfoDiv.innerHTML = `
+                        <p>نام: ${user.first_name} ${user.last_name || ''}</p>
+                        <p>یوزرنیم: ${user.username}</p>
+                        <p>زبان: ${user.language_code}</p>
+                    `;
+                    messageLabel.textContent = 'ok .';
+                } catch (error) {
+                    messageLabel.textContent = 'خطا در تجزیه داده‌های کاربر: ' + error.message;
+                }
+            } else {
+                messageLabel.textContent = 'داده‌ای از کاربر در URL یافت نشد.';
             }
         }
 

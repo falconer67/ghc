@@ -101,7 +101,8 @@ function displayUserInfo() {
         if (userIdParam && userIdParam[1] && firstNameParam && firstNameParam[1]) {
             const userId = userIdParam[1];
             const firstName = firstNameParam[1];
-            document.getElementById('user-info').userInfoDiv.innerHTML = ` عرض سلام و خیر مقدم دارم خدمتتون ${firstName}`;   
+            const marqueeElement =  document.getElementById('user-info');
+             marqueeElement.textContent = ` عرض سلام و خیر مقدم دارم خدمتتون ${firstName}`;   
         } 
     } catch (error) {
         console.error('An error occurred:', error);

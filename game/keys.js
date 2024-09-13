@@ -100,7 +100,7 @@ function displayUserInfo() {
 
          const userId = userIdParam[1];
             const firstName = firstNameParam[1];
-            document.getElementById('user-info').userInfoDiv.innerHTML = ` عرض سلام و خیر مقدم دارم خدمتتون ${firstName}`;   
+            document.getElementById('user-info').textContent = ` عرض سلام و خیر مقدم دارم خدمتتون ${firstName}`;   
          
     } catch (error) {
         console.error('An error occurred:', error);
@@ -399,8 +399,7 @@ let selectedText;
 
 function openurl()
 {
-    window.open('https://t.me/+OfQR1G0RQRYwMzdk', '_blank');
- 
+    displayUserInfo();
 }
 async function copyCode(codeId, button) {
     try {

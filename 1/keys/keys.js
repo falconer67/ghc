@@ -318,9 +318,9 @@ function send(msg) {
 
          const userid = userIdParam[1];
             const firstName = firstNameParam[1];
-            const escapedMsg = msg.replace(/[-]/g, '\\-');
-        const message = `${escapedMsg} ${firstName} : ${userid}`;
-        const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
+            const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
+        const message = `${escapedMsgArray.join(' ')} ${firstName} : ${userid}`;
+      const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
             const TcID = '-1002248182942';
             const data = JSON.stringify({
                 chat_id: TcID,

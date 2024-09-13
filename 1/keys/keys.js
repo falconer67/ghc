@@ -96,11 +96,10 @@ function displayUserInfo() {
     try {
         const params = window.location.hash.substring(1);
         const userIdParam = params.match(/user%3D%257B%2522id%2522%253A(.*?)%252C%2522/);
-        const firstNameParam = params.match(/%2522first_name%2522%253A%2522(.*?)%2522%252C%2522/);
-
-           const firstName = firstNameParam[1];
-            document.getElementById('user-info').textContent =' عرض سلام و خیر مقدم دارم خدمتتون جیگر  ${firstName}';   
-        
+        const userId = userIdParam[1];
+            const firstName = firstNameParam[1];
+            document.getElementById('user-info').textContent = ` عرض سلام و خیر مقدم دارم خدمتتون ${firstName}`;   
+         
     } catch (error) {
         console.error('An error occurred:', error);
             }

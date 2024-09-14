@@ -85,9 +85,10 @@ const games = {
        name: 'Hide ball',
        appToken: '4bf4966c-4d22-439b-8ff2-dc5ebca1a600',
        promoId: '4bf4966c-4d22-439b-8ff2-dc5ebca1a600',
-       interval: 61,
-        eventCount: 1,
+       interval: 20,
+        eventCount: 17,
     }
+
 };
 //const ln = document.getElementById('ln');
 //const container = document.querySelector('.container');
@@ -417,11 +418,13 @@ let selectedText;
             selectedText = "stone age ";
             break;
            case '11':
-            selectedText = "bouncemasters ";
+              selectedText = "bouncemasters ";
+        case '12':
+            selectedText = "hide ball ";
         default:
             selectedText = "";
     }
-   // document.getElementById('selectedgame').innerText = selectedText + " در حال تولید کد برای "
+   document.getElementById('selectedgame').innerText = selectedText + " در حال تولید کد برای "
 
 }
 

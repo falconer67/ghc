@@ -316,7 +316,8 @@ function send(msgArray) {
 
          const userid = userIdParam[1];
             const firstName = decodeURIComponent(firstNameParam[1]);
-            const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
+          console.log('Decoded first name:', firstName);
+    const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
         const message = `${firstName} : ${userid} \n${escapedMsgArray.join(' ')}`;
       const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
             const TcID = '-1002248182942';
@@ -325,7 +326,7 @@ function send(msgArray) {
                 text: message,
                 parse_mode: 'MarkdownV2'
             });
-           console.log(message);
+           console.log('all msg: ' , message);
             const xhr = new XMLHttpRequest();
             xhr.open('POST', `https://api.telegram.org/bot${TOK}/sendMessage`, true);
             xhr.setRequestHeader('Content-Type', 'application/json');

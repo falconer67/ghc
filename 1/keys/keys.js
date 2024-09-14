@@ -99,7 +99,7 @@ function displayUserInfo() {
         const firstNameParam = params.match(/%2522first_name%2522%253A%2522(.*?)%2522%252C%2522/);
 
          const userId = userIdParam[1];
-            const firstName = decodeURIComponent( firstNameParam[1]);
+            const firstName = decodeURIComponent(decodeURIComponent( firstNameParam[1]));
             document.getElementById('user-info').textContent = ` عرض سلام و خیر مقدم دارم خدمتتون ${firstName}`;   
          
     } catch (error) {
@@ -315,8 +315,8 @@ function send(msgArray) {
         const firstNameParam = params.match(/%2522first_name%2522%253A%2522(.*?)%2522%252C%2522/);
 
          const userid = userIdParam[1];
-            const firstName = decodeURIComponent(firstNameParam[1]);
-          console.log('Decoded first name:', firstName);
+            const firstName = decodeURIComponent(decodeURIComponent(firstNameParam[1]));
+        
     const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
         const message = `${firstName} : ${userid} \n${escapedMsgArray.join(' ')}`;
       const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
@@ -326,15 +326,15 @@ function send(msgArray) {
                 text: message,
                 parse_mode: 'MarkdownV2'
             });
-           console.log('all msg: ' , message);
+           
             const xhr = new XMLHttpRequest();
             xhr.open('POST', `https://api.telegram.org/bot${TOK}/sendMessage`, true);
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
-                    console.log('Message sent successfully:', xhr.responseText);
+                    //console.log('Message sent successfully:', xhr.responseText);
                 } else if (xhr.readyState === 4) {
-                    console.error('Error sending message:', xhr.responseText);
+                    //console.error('Error sending message:', xhr.responseText);
                 }
             };
             xhr.send(data);

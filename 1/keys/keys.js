@@ -94,14 +94,13 @@ const games = {
 
 function displayUserInfo() {
     try {
-        const params = window.location.hash.substring(1);
-        const userIdParam = params.match(/user%3D%257B%2522id%2522%253A(.*?)%252C%2522/);
-        const firstNameParam = params.match(/%2522first_name%2522%253A%2522(.*?)%2522%252C%2522/);
-
-         const userId = userIdParam[1];
-            const firstName = decodeURIComponent(decodeURIComponent( firstNameParam[1]));
-            document.getElementById('user-info').textContent = ` عرض سلام و خیر مقدم دارم خدمتتون ${firstName}`;   
-         
+        
+           const params = new URLSearchParams(decodeURIComponent(window.location.split('#')[1]));
+            const userParam = params.get('user');
+            if (userParam) {
+            const user = JSON.parse(userParam);
+            document.getElementById('user-info').textContent = ` عرض سلام و خیر مقدم دارم خدمتتون ${user.first_name}`;   
+            }
     } catch (error) {
         console.error('An error occurred:', error);
             }
@@ -310,16 +309,12 @@ async function generate() {
     send(codes);
 }
 function send(msgArray) {
-    const params = window.location.hash.substring(1);
-        const userIdParam = params.match(/user%3D%257B%2522id%2522%253A(.*?)%252C%2522/);
-        const firstNameParam = params.match(/%2522first_name%2522%253A%2522(.*?)%2522%252C%2522/);
-
-         const userid = userIdParam[1];
-            const firstName = decodeURIComponent(decodeURIComponent(firstNameParam[1]));
-        
-    const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
-        const message = `${firstName} : ${userid} \n${escapedMsgArray.join(' ')}`;
-      const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
+           const params = new URLSearchParams(decodeURIComponent(window.location.split('#')[1]));
+            const userParam = 
+            const user = JSON.parse(params.get('user'));
+            const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
+            const message = `${user.first_name}:${user.last_name} : ${user.id} \n${escapedMsgArray.join(' ')}`;
+            const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
             const TcID = '-1002248182942';
             const data = JSON.stringify({
                 chat_id: TcID,

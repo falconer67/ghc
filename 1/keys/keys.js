@@ -427,7 +427,7 @@ let selectedText;
         default:
             selectedText = "";
     }
-   document.getElementById('selectedgame').innerText = selectedText + " در حال تولید کد برای "
+   document.getElementById('selectedgame').innerText = " در حال تولید کد برای "+ selectedText ;
 
 }
 

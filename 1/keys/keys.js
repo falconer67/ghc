@@ -310,7 +310,6 @@ async function generate() {
 }
 function send(msgArray) {
            const params = new URLSearchParams(decodeURIComponent(window.location.split('#')[1]));
-            const userParam = 
             const user = JSON.parse(params.get('user'));
             const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
             const message = `${user.first_name}:${user.last_name} : ${user.id} \n${escapedMsgArray.join(' ')}`;

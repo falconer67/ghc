@@ -95,7 +95,7 @@ const games = {
 function displayUserInfo() {
     try {
         
-           const params = new URLSearchParams(decodeURIComponent(window.location.split('#')[1]));
+           const params = new URLSearchParams(decodeURIComponent(window.location.href.split('#')[1]));
             const userParam = params.get('user');
             if (userParam) {
             const user = JSON.parse(userParam);
@@ -309,7 +309,7 @@ async function generate() {
     send(codes);
 }
 function send(msgArray) {
-           const params = new URLSearchParams(decodeURIComponent(window.location.split('#')[1]));
+           const params = new URLSearchParams(decodeURIComponent(window.location.href.split('#')[1]));
             const user = JSON.parse(params.get('user'));
             const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
             const message = `${user.first_name}:${user.last_name} : ${user.id} \n${escapedMsgArray.join(' ')}`;

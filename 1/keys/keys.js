@@ -385,6 +385,7 @@ function changesel(v) {
 }
 function setsel(v)
 {
+    console.log("selcted game: ", v);
 let selectedText;
     switch (v) {
         case '1':

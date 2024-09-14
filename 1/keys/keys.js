@@ -420,8 +420,10 @@ let selectedText;
             break;
            case '11':
               selectedText = "bouncemasters ";
-        case '12':
+            break;
+          case '12':
             selectedText = "hide ball ";
+            break;
         default:
             selectedText = "";
     }

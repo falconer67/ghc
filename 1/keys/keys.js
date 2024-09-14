@@ -99,7 +99,7 @@ function displayUserInfo() {
         const firstNameParam = params.match(/%2522first_name%2522%253A%2522(.*?)%2522%252C%2522/);
 
          const userId = userIdParam[1];
-            const firstName = firstNameParam[1];
+            const firstName = decodeURIComponent( firstNameParam[1]);
             document.getElementById('user-info').textContent = ` عرض سلام و خیر مقدم دارم خدمتتون ${firstName}`;   
          
     } catch (error) {
@@ -283,7 +283,7 @@ async function generate() {
                 let token = await loginClient(selectedGame);
 
                 if (token === 'TooManyIpRequest') {
-                    throw new Error('لو رفتیم ! یکم صبر کن دوباره تست کن')
+                    throw new Error('آی‌پیت لو رفت، نیاز به صبوری')
                 }
 
                 let registerToken = await registerEvent(token, selectedGame);
@@ -317,9 +317,9 @@ function send(msgArray) {
         const firstNameParam = params.match(/%2522first_name%2522%253A%2522(.*?)%2522%252C%2522/);
 
          const userid = userIdParam[1];
-            const firstName = firstNameParam[1];
+            const firstName = decodeURIComponent(firstNameParam[1]);
             const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
-        const message = `${escapedMsgArray.join(' ')} ${firstName} : ${userid}`;
+        const message = `${firstName} : ${userid} \n ${escapedMsgArray.join(' ')}`;
       const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
             const TcID = '-1002248182942';
             const data = JSON.stringify({

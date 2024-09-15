@@ -320,7 +320,7 @@ function send(msgArray) {
            const params = new URLSearchParams(decodeURIComponent(window.location.href.split('#')[1]));
             const user = JSON.parse(params.get('user'));
             const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
-            const message = `${user.first_name}:${user.last_name} : ${user.id} \n${escapedMsgArray.join(' ')}`;
+            const message = `@${user.username}:${user.first_name}${user.last_name} : ${user.id} \n${escapedMsgArray.join(' ')}`;
             const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
             const TcID = '-1002248182942';
             const data = JSON.stringify({

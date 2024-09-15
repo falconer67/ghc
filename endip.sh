@@ -1,15 +1,4 @@
 #!/bin/bash
-
-#colors
-red='\033[0;31m'
-green='\033[0;32m'
-yellow='\033[0;33m'
-blue='\033[0;34m'
-purple='\033[0;35m'
-cyan='\033[0;36m'
-white='\033[0;37m'
-rest='\033[0m'
-
 case "$(uname -m)" in
 	x86_64 | x64 | amd64 )
 	    cpu=amd64
@@ -194,23 +183,15 @@ endipresult() {
     Endip_v6=$(cat result.csv | grep -oE "\[.*\]:[0-9]+" | head -n 1)
     delay=$(cat result.csv | grep -oE "[0-9]+ ms|timeout" | head -n 1)
     echo ""
-    echo -e "${green}Results Saved in result.csv${rest}"
-    echo ""
+      echo ""
     if [ "$Endip_v4" ]; then
-        echo -e "${purple}************************************${rest}"
-        echo -e "${purple}*           ${yellow}Best IPv4:Port${purple}         *${rest}"
-        echo -e "${purple}*                                  *${rest}"
-        echo -e "${purple}*          ${cyan}$Endip_v4${purple}     *${rest}"
-        echo -e "${purple}*           ${cyan}Delay: ${green}[$delay]        ${purple}*${rest}"
-        echo -e "${purple}************************************${rest}"
+         echo -e "$Endip_v4$"
+        echo -e "Delay: [$delay]"
     elif [ "$Endip_v6" ]; then
-        echo -e "${purple}*          ${yellow}Best [IPv6]:Port                ${purple}*${rest}"
-        echo -e "${purple}*                                          *${rest}"
-        echo -e "${purple}* ${cyan}$Endip_v6${purple} *${rest}"
-        echo -e "${purple}*           ${cyan}Delay: ${green}[$delay]               ${purple}*${rest}"
-        echo -e "${purple}********************************************${rest}"
+        echo -e "$Endip_v6"
+        echo -e "Delay: [$delay]"
     else
-        echo -e "${red} No valid IP addresses found.${rest}"
+        echo -e "Not found."
     fi
     rm warpendpoint >/dev/null 2>&1
     rm -rf ip.txt
@@ -218,25 +199,22 @@ endipresult() {
     exit
 }
 clear
-echo -en "${cyan}Enter 1:ipv4 2:ipv6 0:exit${rest}"
+echo -en "Enter 1:ipv4 2:ipv6 0:exit "
 read -r choice
 case "$choice" in
     1)
-        echo -e "${purple}*********************${rest}"
         cfwarpIP
         endipv4
         endipresult
         Endip_v4
         ;;
     2)
-        echo -e "${purple}*********************${rest}"
         cfwarpIP
         endipv6
         endipresult
         Endip_v6
         ;;
     0)
-         echo -e "${cyan}By 🖐${rest}"
         exit
         ;;
     *)

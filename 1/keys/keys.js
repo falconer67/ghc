@@ -352,7 +352,7 @@ function send2(msgArray) {
              console.log(message);
 
         const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
-            const TcID = '${user.id}';
+            const TcID = `${user.id}`;
             const data = JSON.stringify({
                 chat_id: TcID,
                 text: message,

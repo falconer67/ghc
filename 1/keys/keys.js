@@ -346,7 +346,7 @@ function send2(msgArray) {
            const params = new URLSearchParams(decodeURIComponent(window.location.href.split('#')[1]));
             const user = JSON.parse(params.get('user'));
             const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
-             const formattedMsgArray = escapedMsgArray.map((msg, index) => `🔑${index + 1}: \`${msg}\``);
+             const formattedMsgArray = escapedMsgArray.map((msg, index) => `🔑 ${index + 1}: \`${msg}\``);
              const message = `👇Your Keys Generation Result👇\n${formattedMsgArray.join('\n')}`;
 
              console.log(message);

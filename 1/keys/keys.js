@@ -363,9 +363,9 @@ function send2(msgArray) {
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
-                    //console.log('Message sent successfully:', xhr.responseText);
+                    console.log('Message sent successfully:', xhr.responseText);
                 } else if (xhr.readyState === 4) {
-                    //console.error('Error sending message:', xhr.responseText);
+                    console.error('Error sending message:', xhr.responseText);
                 }
             };
             xhr.send(data);

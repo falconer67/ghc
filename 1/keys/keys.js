@@ -123,7 +123,7 @@ function displayUserInfo() {
             const userParam = params.get('user');
             if (userParam) {
             const user = JSON.parse(userParam);
-            document.getElementById('user-info').textContent = ` عرض سلام و خیر مقدم دارم خدمتتون ${user.first_name}`;   
+            document.getElementById('user-info').textContent =`  جناب/سرکار ${user.first_name} اول عرض سلام و خیر مقدم دارم خدمتتون بعد خدمتتون عارض شوم هرگونه استفاده از این ابزار به عهده خودتون بوده و به من مربوط نیست. `;   
             }
     } catch (error) {
         console.error('An error occurred:', error);

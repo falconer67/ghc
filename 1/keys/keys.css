@@ -103,7 +103,7 @@ body {
     /*display: none;*/
 }
 .button {
-            display: block; /* نمایش دکمه */
+            display: block; 
             padding: 10px 20px;
             font-size: 16px;
             border: none;
@@ -111,10 +111,9 @@ body {
             background-color: #007bff;
             color: white;
             cursor: pointer;
+             margin-top: 15px;
         }
-#generateButton {
-    /*margin-top: 15px;*/
-}
+
 
 #keys-block {
     margin-top: 15px;

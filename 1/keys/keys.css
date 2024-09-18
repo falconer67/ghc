@@ -102,9 +102,18 @@ body {
     margin-top: 15px;
     /*display: none;*/
 }
-
+.button {
+            display: block; /* نمایش دکمه */
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
 #generateButton {
-    margin-top: 15px;
+    /*margin-top: 15px;*/
 }
 
 #keys-block {

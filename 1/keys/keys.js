@@ -110,9 +110,17 @@ const games = {
             promoId: 'eb518c4b-e448-4065-9d33-06f3039f0fcb',
             interval: 20,
             eventCount: 16,   
+    },
+    
+   16: {
+            name: 'Among Water',
+            appToken: 'daab8f83-8ea2-4ad0-8dd5-d33363129640',
+            promoId: 'daab8f83-8ea2-4ad0-8dd5-d33363129640',
+            interval: 20,
+            eventCount: 14,   
     }
-
 };
+
 //const ln = document.getElementById('ln');
 //const container = document.querySelector('.container');
       //  ln.addEventListener('click', () => {
@@ -486,6 +494,9 @@ let selectedText;
             break;
          case '15':
             selectedText = "infected  ";
+            break;
+            case '16':
+            selectedText = "among water  ";
             break;
         default:
             selectedText = "";

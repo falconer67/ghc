@@ -119,8 +119,6 @@ const games = {
             interval: 20,
             eventCount: 14,   
     },
-    
-};,
         17: {
             name: 'Factory World',
             appToken: 'd02fc404-8985-4305-87d8-32bd4e66bb16',
@@ -128,7 +126,7 @@ const games = {
             interval: 20,
             eventCount: 14, 
         }
-
+};
 //const ln = document.getElementById('ln');
 //const container = document.querySelector('.container');
       //  ln.addEventListener('click', () => {

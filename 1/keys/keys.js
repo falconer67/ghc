@@ -103,7 +103,14 @@ const games = {
             promoId: 'd2378baf-d617-417a-9d99-d685824335f0',
             interval: 20,
             eventCount: 16,   
-        }
+        },
+    15: {
+            name: 'Infected Frontier',
+            appToken: 'eb518c4b-e448-4065-9d33-06f3039f0fcb',
+            promoId: 'eb518c4b-e448-4065-9d33-06f3039f0fcb',
+            interval: 20,
+            eventCount: 16,   
+    }
 
 };
 //const ln = document.getElementById('ln');
@@ -476,6 +483,9 @@ let selectedText;
             break;
           case '14':
             selectedText = "pin out  ";
+            break;
+         case '15':
+            selectedText = "infected  ";
             break;
         default:
             selectedText = "";

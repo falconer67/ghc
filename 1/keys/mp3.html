@@ -15,27 +15,33 @@
         }
         .combo-box option {
             padding-left: 30px;
-            background-repeat: no-repeat;
-            background-position: left center;
         }
-        .option-1 {
-            background-image: url('https://cdn.hamsterkombat.io/chain_cube/image.webp');
-        }
-        .option-2 {
-            background-image: url('https://cdn.hamsterkombat.io/chain_cube/image.webp');
-        }
-        .option-3 {
-            background-image: url('https://cdn.hamsterkombat.io/chain_cube/image.webp');
+        .combo-box img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
     <div class="combo-box">
-        <select>
-            <option class="option-1" value="1">گزینه ۱</option>
-            <option class="option-2" value="2">گزینه ۲</option>
-            <option class="option-3" value="3">گزینه ۳</option>
+        <select id="combo">
+            <option value="1">گزینه ۱</option>
+            <option value="2">گزینه ۲</option>
+            <option value="3">گزینه ۳</option>
         </select>
     </div>
+
+    <script>
+        const combo = document.getElementById('combo');
+        const options = combo.options;
+
+        for (let i = 0; i < options.length; i++) {
+            const img = document.createElement('img');
+            img.src = 'https://cdn.hamsterkombat.io/chain_cube/image.webp';
+            options[i].prepend(img);
+        }
+    </script>
 </body>
 </html>

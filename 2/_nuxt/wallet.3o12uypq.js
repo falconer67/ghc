@@ -1,0 +1,2 @@
+const a=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g clip-path="url(#a24234de3)"><path fill="currentColor" d="M20.25 6h-15a.75.75 0 0 1 0-1.5H18A.75.75 0 1 0 18 3H5.25A2.25 2.25 0 0 0 3 5.25v12a2.25 2.25 0 0 0 2.25 2.25h15a1.5 1.5 0 0 0 1.5-1.5V7.5a1.5 1.5 0 0 0-1.5-1.5Zm-3.375 7.5a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Z"/></g><defs><clipPath id="a24234de3"><path fill="currentColor" d="M0 0h24v24H0z"/></clipPath></defs></svg>
+`;export{a as default};

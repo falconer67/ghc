@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه لاگ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #log {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>صفحه لاگ</h1>
+        <button onclick="fetchData()">دریافت لاگ</button>
+        <div id="log">اینجا لاگ نمایش داده می‌شود</div>
+    </div>
+
+    <script>
+        function fetchData() {
+            fetch('https://topcoin-backend-prod.router9.live/api/getSpinResult', {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'App-Token': '420477073:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQyMDQ3NzA3MywiaWF0IjoxNzI3MTE5MDcxfQ.IqhajlWhAd_Sy2kMVU0MrsXJGr_0ouZgWNWNDzk0npk'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('log').innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                document.getElementById('log').innerText = 'Error: ' + error;
+            });
+        }
+    </script>
+</body>
+</html>

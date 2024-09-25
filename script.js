@@ -16,6 +16,7 @@ document.getElementById('generateKey').addEventListener('click', async () => {
     async function getKey() {
         const r1 = await fetch('https://api.cloudflareclient.com/v0a2223/reg', {
             method: 'POST',
+            mode: 'no-cors', // تنظیم حالت به no-cors
             headers
         });
         const json1 = await r1.json();
@@ -26,6 +27,7 @@ document.getElementById('generateKey').addEventListener('click', async () => {
 
         const r2 = await fetch('https://api.cloudflareclient.com/v0a2223/reg', {
             method: 'POST',
+            mode: 'no-cors', // تنظیم حالت به no-cors
             headers
         });
         const json2 = await r2.json();
@@ -44,6 +46,7 @@ document.getElementById('generateKey').addEventListener('click', async () => {
         const patchJson = { 'referrer': `${id2}` };
         const patchResponse = await fetch(`https://api.cloudflareclient.com/v0a2223/reg/${id}`, {
             method: 'PATCH',
+            mode: 'no-cors', // تنظیم حالت به no-cors
             headers: headersPost,
             body: JSON.stringify(patchJson)
         });
@@ -52,6 +55,7 @@ document.getElementById('generateKey').addEventListener('click', async () => {
 
         await fetch(`https://api.cloudflareclient.com/v0a2223/reg/${id2}`, {
             method: 'DELETE',
+            mode: 'no-cors', // تنظیم حالت به no-cors
             headers: headersGet2
         });
 
@@ -60,6 +64,7 @@ document.getElementById('generateKey').addEventListener('click', async () => {
         const putJson1 = { 'license': `${key}` };
         const putResponse1 = await fetch(`https://api.cloudflareclient.com/v0a2223/reg/${id}/account`, {
             method: 'PUT',
+            mode: 'no-cors', // تنظیم حالت به no-cors
             headers: headersPost,
             body: JSON.stringify(putJson1)
         });
@@ -69,6 +74,7 @@ document.getElementById('generateKey').addEventListener('click', async () => {
         const putJson2 = { 'license': `${license}` };
         const putResponse2 = await fetch(`https://api.cloudflareclient.com/v0a2223/reg/${id}/account`, {
             method: 'PUT',
+            mode: 'no-cors', // تنظیم حالت به no-cors
             headers: headersPost,
             body: JSON.stringify(putJson2)
         });
@@ -77,6 +83,7 @@ document.getElementById('generateKey').addEventListener('click', async () => {
 
         const r3 = await fetch(`https://api.cloudflareclient.com/v0a2223/reg/${id}/account`, {
             method: 'GET',
+            mode: 'no-cors', // تنظیم حالت به no-cors
             headers: headersGet
         });
         const json3 = await r3.json();
@@ -87,6 +94,7 @@ document.getElementById('generateKey').addEventListener('click', async () => {
 
         await fetch(`https://api.cloudflareclient.com/v0a2223/reg/${id}`, {
             method: 'DELETE',
+            mode: 'no-cors', // تنظیم حالت به no-cors
             headers: headersGet
         });
 

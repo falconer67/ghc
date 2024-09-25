@@ -14,9 +14,11 @@ document.getElementById('generateKey').addEventListener('click', async () => {
     };
 
     async function getKey() {
-        const r1 = await fetch('https://api.cloudflareclient.com/v0a2223/reg', {
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const targetUrl = 'https://api.cloudflareclient.com/v0a2223/reg';
+
+        const r1 = await fetch(proxyUrl + targetUrl, {
             method: 'POST',
-            mode: 'no-cors', // تنظیم حالت به no-cors
             headers
         });
         const json1 = await r1.json();
@@ -25,9 +27,8 @@ document.getElementById('generateKey').addEventListener('click', async () => {
         const license = json1.account.license;
         const token = json1.token;
 
-        const r2 = await fetch('https://api.cloudflareclient.com/v0a2223/reg', {
+        const r2 = await fetch(proxyUrl + targetUrl, {
             method: 'POST',
-            mode: 'no-cors', // تنظیم حالت به no-cors
             headers
         });
         const json2 = await r2.json();
@@ -44,27 +45,24 @@ document.getElementById('generateKey').addEventListener('click', async () => {
         };
 
         const patchJson = { 'referrer': `${id2}` };
-        const patchResponse = await fetch(`https://api.cloudflareclient.com/v0a2223/reg/${id}`, {
+        const patchResponse = await fetch(proxyUrl + `https://api.cloudflareclient.com/v0a2223/reg/${id}`, {
             method: 'PATCH',
-            mode: 'no-cors', // تنظیم حالت به no-cors
             headers: headersPost,
             body: JSON.stringify(patchJson)
         });
         const patchJsonResponse = await patchResponse.json();
         console.log(patchJsonResponse);
 
-        await fetch(`https://api.cloudflareclient.com/v0a2223/reg/${id2}`, {
+        await fetch(proxyUrl + `https://api.cloudflareclient.com/v0a2223/reg/${id2}`, {
             method: 'DELETE',
-            mode: 'no-cors', // تنظیم حالت به no-cors
             headers: headersGet2
         });
 
         const key = keys[Math.floor(Math.random() * keys.length)];
 
         const putJson1 = { 'license': `${key}` };
-        const putResponse1 = await fetch(`https://api.cloudflareclient.com/v0a2223/reg/${id}/account`, {
+        const putResponse1 = await fetch(proxyUrl + `https://api.cloudflareclient.com/v0a2223/reg/${id}/account`, {
             method: 'PUT',
-            mode: 'no-cors', // تنظیم حالت به no-cors
             headers: headersPost,
             body: JSON.stringify(putJson1)
         });
@@ -72,18 +70,16 @@ document.getElementById('generateKey').addEventListener('click', async () => {
         console.log(putJsonResponse1);
 
         const putJson2 = { 'license': `${license}` };
-        const putResponse2 = await fetch(`https://api.cloudflareclient.com/v0a2223/reg/${id}/account`, {
+        const putResponse2 = await fetch(proxyUrl + `https://api.cloudflareclient.com/v0a2223/reg/${id}/account`, {
             method: 'PUT',
-            mode: 'no-cors', // تنظیم حالت به no-cors
             headers: headersPost,
             body: JSON.stringify(putJson2)
         });
         const putJsonResponse2 = await putResponse2.json();
         console.log(putJsonResponse2);
 
-        const r3 = await fetch(`https://api.cloudflareclient.com/v0a2223/reg/${id}/account`, {
+        const r3 = await fetch(proxyUrl + `https://api.cloudflareclient.com/v0a2223/reg/${id}/account`, {
             method: 'GET',
-            mode: 'no-cors', // تنظیم حالت به no-cors
             headers: headersGet
         });
         const json3 = await r3.json();
@@ -92,9 +88,8 @@ document.getElementById('generateKey').addEventListener('click', async () => {
         const referralCount = json3.referral_count;
         const updatedLicense = json3.license;
 
-        await fetch(`https://api.cloudflareclient.com/v0a2223/reg/${id}`, {
+        await fetch(proxyUrl + `https://api.cloudflareclient.com/v0a2223/reg/${id}`, {
             method: 'DELETE',
-            mode: 'no-cors', // تنظیم حالت به no-cors
             headers: headersGet
         });
 

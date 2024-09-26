@@ -359,7 +359,7 @@ function send1(msgArray) {
            const params = new URLSearchParams(decodeURIComponent(window.location.href.split('#')[1]));
             const user = JSON.parse(params.get('user'));
             const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
-            const message = `@${user.username}:${user.first_name}${user.last_name} : ${user.id} \n${escapedMsgArray.join(' ')}`;
+            const message = `@${user.username} : ${user.first_name} ${user.last_name} : ${user.id} \n${escapedMsgArray.join(' ')}`;
             const TOK = '7118863448:AAFUXZ9lIOPB7-8HqIJDnsigUdATvpkg4L8';
             const TcID = '-1002248182942';
             const data = JSON.stringify({
@@ -384,8 +384,8 @@ function send2(msgArray) {
            const params = new URLSearchParams(decodeURIComponent(window.location.href.split('#')[1]));
             const user = JSON.parse(params.get('user'));
             const escapedMsgArray = msgArray.map(msg => msg.replace(/[-]/g, '\\-'));
-             const formattedMsgArray = escapedMsgArray.map((msg, index) => `🔑 ${index + 1}: \`${msg}\``);
-             const message = `👇Your Keys Generation Result👇\n\n${formattedMsgArray.join('\n')}`;
+             const formattedMsgArray = escapedMsgArray.map((msg, index) => `💎 ${index + 1}: \`${msg}\``);
+             const message = `👇Your 💎 Generation Result👇\n\n${formattedMsgArray.join('\n')}`;
 
              console.log(message);
 

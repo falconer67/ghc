@@ -2,24 +2,24 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>ارسال درخواست POST</title>
+    <title>  POST</title>
 </head>
 <body>
-    <button id="spinButton">چرخاندن چرخ شانس</button>
+    <button id="spinButton">update</button>
     <div id="response"></div>
 
     <script>
         document.getElementById('spinButton').addEventListener('click', function() {
             //spin https://dropee.clicker-game-api.tropee.com/api/game/actions/fortune-wheel/spin
-            fetch('https://dropee.clicker-game-api.tropee.com/api/game/actions/friends/1005871065303744513/poke' 
+            fetch('https://dropee.clicker-game-api.tropee.com/api/game/actions/upgrade' 
                   , {
                 method: 'POST',
                 headers: {
                     'Accept': '*/*',
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer eyJ2ZXJzaW9uIjoyLCJhbGciOiJSUzUxMiJ9.eyJwbGF5ZXIiOnsiaWQiOjQyMDQ3NzA3MywiaXNQcmVtaXVtIjpmYWxzZSwiZmlyc3ROYW1lIjoiRmFsY29uZXIifSwiaXNzIjoiZHJvcGVlIiwic2Vhc29uIjoiYmV0YXYyIiwiZXhwIjoxNzI3MzY5MzAxLCJzdWIiOiI0MjA0NzcwNzMiLCJpYXQiOjE3MjcyODI5MDF9.B-iuDFws6ox6B-51fi87RS45RMtz5X4YTq_BQxaa3lXyueElArbgWbj3Tsb-WAo5jMwB7XuIc-pfUWO9ftV5hwxJksWe_sxTcssCqtPj18NDFZo4SnymUxYGMeKEAq74kGWwqy8OFa8aDTo4UpjLuKA5hjdXtQn_a1N4wOm_zLc6bCESyFe_-oU-nENViJ2rjYP8CQAADp6NTupFSUPdnD2APBw14uox_dUnlz1b7bKI-ExP85mLPvxJH-4Qc-ZT_b9fQh8lGrvUZu26xDcO8h8RqrBHqjnu38P2mEXZ9RVkxoMuhSaEOPYyIf9RGkuXuMGyMLaziyissIjqKglgZRwc6qU2ejvhKmNnp8ZttqZwJvX7LmlEsIn2eThWezEg16PtZRMbz0iC6D_ce2KM3ivuWEU-qm8af3rDSEvp-_vYTHwZfIm0N9xtTJcw13rlFw7B8jAlay1QyCl615tPRdxvoqVkzc6OKW07_AnjYrOxlmSSpGkTy2GJX-u0ATx_Sk_LK5aolctBqDRMTv5zptSIqarw3wXW2PkBZyVVautCebGxzOG5fD7o8GB7nQUoOANo_tJ_huV3fMAtIAuSLwiZ2r0tgnPzU6UtJPO-cccngjUZW5Sd3YjRqajR0z2xsJpet-JO6Re_qsq4HPyjOWTswNGeh8NRoT4gofLMhN8'
-                },
-                body: JSON.stringify({})
+                    'Authorization': 'Bearer eyJ2ZXJzaW9uIjoyLCJhbGciOiJSUzUxMiJ9.eyJwbGF5ZXIiOnsiaWQiOjQyMDQ3NzA3MywiaXNQcmVtaXVtIjpmYWxzZSwiZmlyc3ROYW1lIjoiRmFsY29uZXIifSwiaXNzIjoiZHJvcGVlIiwic2Vhc29uIjoiYmV0YXYyIiwiZXhwIjoxNzI3NjE4NDMwLCJzdWIiOiI0MjA0NzcwNzMiLCJpYXQiOjE3Mjc1MzIwMzB9.TN7EZWVvcT1iNEpyjqAqXta_KODyOdH4yzHiDKyXIUkkVbSApl_t2jCuXPZ38bans4OOPyBYG6cfPJCXz4QfnvEjRIFrox3hcuP0NuBYJugnSkFrhbbj2JLcZDwkLm8kf75u1VpJN-5TS94yCY40_1NvsNIezUyNfu8nI-itTlBPtdWfP8-v3FOzUQI30TLw3XXsoQOlYRuM21zKTicsU0HH_od0UM3wQOGm6zwfqoqXOKaf1Yo0RVt-FmQYqDuEoCmCy8iaocVPTpqdC0SvaHjHZkwByGBRujCigTdhgszZKB3pDnLU89yfEe3HtV8v4nHKMEqs9ApxBYXTxgO7EORI4PjaZLr0eq3cGGq6Re2rFa2ALsU1gO9AldAmOX6S5q3rib-VzI2fWM7wSPO4TqFHWjy3FxPxf3biwdBjLS4aVnrORBZ6rjM0ywmn4puqZ8SZEXfwj66fBtN5Pu76puhjN7iP7VFjc444HxfUVECqDNj2mLpqBUsD_frhrHRUDYBfZ_6YYI4DmmgNmWPv8bzXnMxbENjdBi5m7spOlGXn-AjNHrkRvuge_Ix6ZA8Eosgn3LdzjVQ0yzP8jQOVJNWAa0pssbASNiMjDubH7ortDIfPPb3qkzJNFy2j43V9IoeT6tz4_d8MZk0P34mWW3s-NB_WuXodFireO6yNsUg'
+                } ,
+                body: JSON.stringify({"upgradeId": "marketing"})
             })
             .then(response => response.json())
             .then(data => {

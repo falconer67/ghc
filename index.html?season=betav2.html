@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>Dropee</title>
+    <script>
+      const searchParams = new URLSearchParams(window.location.search)
+      if (searchParams.has('currentSeason')) {
+        const season = searchParams.get('currentSeason')
+        if (season !== localStorage.getItem('season')) {
+          localStorage.clear()
+          localStorage.setItem('season', season)
+        }
+      }
+    </script>
+    <script src="https://sad.adsgram.ai/js/sad.min.js"></script>
+  <script type="module" crossorigin src="assets/index-CGiy0fgc.js"></script>
+  <link rel="stylesheet" crossorigin href="assets/index-D0xmMuZ8.css">
+</head>
+<body>
+<div id="app"></div>
+</body>
+</html>

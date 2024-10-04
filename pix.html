@@ -5,32 +5,42 @@
     <title>  POST</title>
 </head>
 <body>
-    <button id="spinButton">lolseeeeeet                              pixeeeeeeeeeeeel</button>
+    <button id="spinButton">lolseeeeeet  hhdhdhhd                            pixeeeeeeeeeeeel</button>
     <div id="response"></div>
 
     <script>
         document.getElementById('spinButton').addEventListener('click', function() {
             //spin https://dropee.clicker-game-api.tropee.com/api/game/actions/fortune-wheel/spin
             const payload = {
-             pixelId: Math.floor(100000 + Math.random() * 900000).toString(),
-             newColor: "#00756F"
-              };
-            fetch('https://notpx.app/api/v1/repaint/start' 
-                  , {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json, text/plain, */*',
-                    'Authorization': 'initData user=%7B%22id%22%3A6307487232%2C%22first_name%22%3A%22%D8%AE%D9%88%D8%B2%D8%B1%D9%88%D8%AE%D8%A7%D9%86%22%2C%22last_name%22%3A%22%22%2C%22language_code%22%3A%22fa%22%2C%22allows_write_to_pm%22%3Atrue%7D&chat_instance=6800192295148366369&chat_type=sender&auth_date=1728061440&hash=8a1796ae61ed7a88167cb3eea2adb7f6d939fd4246b783ca249c4febd984ad35'
-                } ,
-                body: JSON.stringify(payload)
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('response').innerText = JSON.stringify(data, null, 2);
-            })
-            .catch(error => {
-                document.getElementById('response').innerText = 'خطا: ' + error;
-            });
+  pixelId: Math.floor(100000 + Math.random() * 900000).toString(),
+  newColor: "#00756F"
+};
+
+try {
+  fetch('https://notpx.app/api/v1/repaint/start', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Authorization': 'initData user=%7B%22id%22%3A6307487232%2C%22first_name%22%3A%22%D8%AE%D9%88%D8%B2%D8%B1%D9%88%D8%AE%D8%A7%D9%86%22%2C%22last_name%22%3A%22%22%2C%22language_code%22%3A%22fa%22%2C%22allows_write_to_pm%22%3Atrue%7D&chat_instance=6800192295148366369&chat_type=sender&auth_date=1728061440&hash=8a1796ae61ed7a88167cb3eea2adb7f6d939fd4246b783ca249c4febd984ad35'
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    document.getElementById('response').innerText = JSON.stringify(data, null, 2);
+  })
+  .catch(error => {
+    document.getElementById('response').innerText = 'خطا: ' + error;
+  });
+} catch (error) {
+  document.getElementById('response').innerText = 'خطای غیرمنتظره: ' + error;
+}
+
         });
     </script>
 </body>
